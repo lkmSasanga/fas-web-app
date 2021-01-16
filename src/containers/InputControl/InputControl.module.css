@@ -1,0 +1,35 @@
+.Content {
+    margin-top: 70px;
+}
+
+.Button {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px;
+    border: 2px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+}
+.Button:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+}
+
+.TextInput {
+    width: 35%;
+    border: 1px solid #555555;
+    padding: 5px 10px;
+    height: 30px;
+    border-radius: 30px;
+    outline: none;
+    color: #01181a;
+    align-items: center;
+    font-size: 15px;
+}
+.TextInput:hover {
+    box-shadow: 0 8px 6px -6px #b0ecfd;
+}
