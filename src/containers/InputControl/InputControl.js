@@ -2,11 +2,13 @@ import React, {Component} from "react";
 import classes from './InputControl.module.css';
 
 import ItemNameOutput from '../RequestData/RequestData';
+// import Spinner from '../../components/UI/Spinner/Spinner';
 
 class InputControl extends Component {
     state = {
         itemName: '',
-        staticName: ''
+        staticName: '',
+        // loading: false
     }
 
     onChangeItemName = (e) =>{
@@ -40,7 +42,12 @@ class InputControl extends Component {
         if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop'){
             // this.setState({staticName: itemNameCheck})
             // console.log('Static name : ' , this.state.staticName)
-            return <ItemNameOutput name={this.state.itemName}/>
+            return (
+                <div>
+                    {/*{this.setState({loading: true})}*/}
+                    <ItemNameOutput name={this.state.itemName}/>
+                </div>
+                )
         } else {
             // return <p>Enter 'tv' or 'phone'</p>
             console.log('Enter valid item')
@@ -50,6 +57,9 @@ class InputControl extends Component {
 
 
     render() {
+        // if (this.state.loading) {
+        //     const spinner = <Spinner/>
+        // }
         return (
             <React.Fragment>
                 <div className={classes.Content}>
