@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
+import ChartDashboard from "../../components/Charts/ChartDashboard/ChartDashboard";
+
+import DataProcessing, {
+    overallItem,
+    featureOne,
+    featureTwo,
+    featureThree
+} from "../../components/Charts/DataProcessing";
 
 class RequestData extends Component {
 
@@ -9,7 +17,8 @@ class RequestData extends Component {
             name: '',
             items: [],
             selectedItem: {},
-            loading: false
+            loading: false,
+            showChart: true
         };
 
 
@@ -27,7 +36,7 @@ class RequestData extends Component {
                 const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === selectedItemName)
                 console.log(filteredArray)
 
-                this.setState({loading: false})
+                this.setState({loading: false, showChart: true})
 
                 this.setState({
                     items: response.data,
@@ -40,13 +49,32 @@ class RequestData extends Component {
                 console.log(error);
             })
 
+        // from charts
+        DataProcessing();
+        this.copyDataSeries();
     }
 
-    render(props) {
+    copyDataSeries = (obj = {}) => {
+        this.setState({
+            charts: [
+                { serie: overallItem, title: `Overall ${this.props.name}`},
+                { serie: featureOne, title: `I phone 7 :Battery` },
+                { serie: featureTwo, title: `I phone 7: Display` },
+                { serie: featureThree, title: `Gender` }
+            ]
+        });
+    };
 
+    render(props) {
+        // if (this.state.showChart) {
+        //     let dashboard =<ChartDashboard/>
+        // }
+
+        // console.log('selected item ',this.state.selectedItem)
 
         let form = (
             <div>
+                <br/>
                 <p>Item: {this.state.selectedItem.item}</p>
                 <p>Negative: {this.state.selectedItem.negative}</p>
                 <p>Positive: {this.state.selectedItem.positive}</p>
@@ -60,6 +88,10 @@ class RequestData extends Component {
         return (
             <React.Fragment>
                 {form}
+                {/*{*/}
+                {/*    this.state.showChart ?  <ChartDashboard/> : null*/}
+                {/*}*/}
+                <ChartDashboard charts={this.state.charts} chartData={this.state.selectedItem}/>
             </React.Fragment>
 
         )
