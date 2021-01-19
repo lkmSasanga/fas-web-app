@@ -1,0 +1,18 @@
+.DonetChart {
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*width: 100%;*/
+    align-items: center;
+    display: inline-block;
+    /*flex-flow: row;*/
+}
+
+@media screen and (max-width: 499px) {
+    .DonetChart {
+        /*flex-flow: column;*/
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+    }
+
+}

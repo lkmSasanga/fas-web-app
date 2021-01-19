@@ -8,8 +8,8 @@ import React from "react";
 
     let dataProcessing = (props) => {
         overallItem = [
-            { name: "negative", y: 55 },
-            { name: "positive", y: 45 }
+            { name: "negative", y: 50 },
+            { name: "positive", y: 50 }
         ];
 
         featureOne = [
