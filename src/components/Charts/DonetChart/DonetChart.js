@@ -8,7 +8,23 @@ import HighchartsReact from 'highcharts-react-official'
 class DonetChart extends Component{
     state = {
         dataRecieved: false,
-        chartSize: 50
+        chartSize: 50,
+        mainChartData: {
+            pos: this.props.itemDetails.positive,
+            neg: this.props.itemDetails.negative
+        },
+        featureChartsData: {
+            featureOne: {
+                name: '',
+                pos: null,
+                neg: null
+            },
+            featureTwo: {
+                name: '',
+                pos: null,
+                neg: null
+            }
+        }
     }
 
 
@@ -25,12 +41,9 @@ class DonetChart extends Component{
         this.setState({dataRecieved: false})
     }
 
-    // runChart = () => {
-    //     return (<HighchartsReact
-    //         highcharts = { Highcharts }
-    //         options = { this.chartComponent }
-    //     />)
-    // }
+    mainChart = () => {
+
+    }
 
     render (props) {
 
@@ -38,7 +51,7 @@ class DonetChart extends Component{
         var neg = parseInt(this.props.itemDetails.negative)
         const chartComponent = {
         chart: {
-            plotBackgroundColor: '#c0ffff',
+            plotBackgroundColor: '#e1ffff',
                 plotBorderWidth: null,
                 plotShadow: false,
                 type: "pie",
@@ -71,7 +84,8 @@ class DonetChart extends Component{
             colorByPoint: true,
             data: [{
                 name: 'Positive',
-                y: pos
+                y: pos,
+                color: '#40A4C8'
             },
                 {
                     name: 'Negative',
@@ -129,13 +143,24 @@ class DonetChart extends Component{
         let chartsStock = (
             <div className={classes.DonetChart}>
                 <HighchartsReact
-
                     highcharts={Highcharts}
                     options={chartComponent}
                 />
             </div>
         )
 
+        let featureCharts = (
+            <div className={classes.DonetChart}>
+                <HighchartsReact
+                    highcharts={Highcharts}
+                    options={chartComponent}
+                />
+            </div>
+        )
+
+
+
+        console.log(this.props.itemDetails.features)
         return (
             <React.Fragment>
                 <div >
