@@ -13,19 +13,20 @@ class DonetChart extends Component{
             pos: this.props.itemDetails.positive,
             neg: this.props.itemDetails.negative
         },
-        featureChartsData: {
-            featureOne: {
-                name: '',
-                pos: null,
-                neg: null
-            },
-            featureTwo: {
-                name: '',
-                pos: null,
-                neg: null
-            }
-        }
+        featureOne: {
+            name: '',
+            pos: null,
+            neg: null
+        },
+        featureTwo: {
+            name: '',
+            pos: null,
+            neg: null
+        },
+        featuresArray: [],
+        features: this.props.itemDetails.features
     }
+
 
 
     componentDidMount() {
@@ -34,7 +35,29 @@ class DonetChart extends Component{
         //     highcharts = { Highcharts }
         //     options = { this.chartComponent }
         // />)
+        // this.extractFeatureData();
         this.setState({dataRecieved: true})
+
+        // const featuresArray = [];
+        for (let feature in this.props.itemDetails.features) {
+            this.state.featuresArray.push({
+                name: this.props.itemDetails.features[feature].name,
+                pos: this.props.itemDetails.features[feature].positive,
+                neg: this.props.itemDetails.features[feature].negative
+            })
+        }
+
+        console.log('fetures array ', this.state.featuresArray)
+        // this.setState({
+        //     featureOne: {
+        //         name: this.state.featuresArray[0].name,
+        //         pos: this.state.featuresArray[0].pos
+        //     },
+
+        // })
+        // console.log(this.state.featuresArray[0].name)
+        // console.log(this.state.featuresArray[0].pos)
+
     }
 
     componentWillUnmount() {
@@ -45,10 +68,15 @@ class DonetChart extends Component{
 
     }
 
+    extractFeatureData = (props) => {
+
+    }
+
     render (props) {
 
         var pos = parseInt(this.props.itemDetails.positive)
         var neg = parseInt(this.props.itemDetails.negative)
+
         const chartComponent = {
         chart: {
             plotBackgroundColor: '#e1ffff',
@@ -126,6 +154,83 @@ class DonetChart extends Component{
 
     }
 
+        const featureOneChartComponent = {
+            chart: {
+                plotBackgroundColor: '#e1ffff',
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: "pie",
+                style: {
+                    'float': 'right'
+                }
+
+            },
+            tooltip: {
+                pointFormat: "<b>{point.y} %</b>"
+            },
+            plotOptions: {
+                pie: {
+                    showInLegend: true,
+                    innerSize: "60%",
+                    dataLabels: {
+                        enabled: false,
+                        distance: -14,
+                        color: "white",
+                        style: {
+                            fontWeight: "bold",
+                            fontsize: 50
+                        }
+                    },
+                    size: `${this.state.chartSize}%`
+                }
+            },
+            series: [{
+                name: 'Sentiment',
+                colorByPoint: true,
+                data: [{
+                    name: 'Positive',
+                    y: pos,
+                    color: '#40A4C8'
+                },
+                    {
+                        name: 'Negative',
+                        y: neg
+                    }
+                ]
+            }],
+            title: {
+                text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
+            },
+            subtitle: {
+                text: pos + '%' ,
+                style: {
+                    fontSize: 14,
+                    fontWeight: "bold",
+                    align: 'center',
+                    floating: true,
+                    color: "#000000"
+                },
+                y: 200
+            },
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 499
+                    },
+                    chartOptions: {
+                        align: 'center',
+                        size: '40%',
+                    },
+                    plotOptions: {
+                        pie: {
+                            size: '40%'
+                        }
+                    },
+                }]
+            }
+
+        }
+
     // let chartView = this.props.itemDetails ?
     //
     // if (this.props.itemDetails) {
@@ -160,7 +265,12 @@ class DonetChart extends Component{
 
 
 
-        console.log(this.props.itemDetails.features)
+        console.log(this.props.itemDetails)
+
+
+
+
+
         return (
             <React.Fragment>
                 <div >
