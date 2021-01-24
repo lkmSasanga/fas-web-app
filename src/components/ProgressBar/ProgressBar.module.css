@@ -37,3 +37,11 @@
     opacity: 0;
     transition: 1s ease 0.3s;
 }
+
+@media screen and (max-width: 499px) {
+    .progress {
+        margin: 15px 0;
+        height: 20px;
+        width: 300px;
+    }
+}

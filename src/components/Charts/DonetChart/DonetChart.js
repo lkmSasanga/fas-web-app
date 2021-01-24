@@ -288,6 +288,7 @@ class DonetChart extends Component{
                 <div className={classes.ChartsRow}>
                     <div className={classes.Cards}>
                         <p className={classes.PieChartTitle}>Overall Report</p>
+                        <p className={classes.PieChartItemName}>I Phone 7</p>
                         <div className={classes.PieChart}>{chartsStock}</div>
 
                     </div>
@@ -300,21 +301,21 @@ class DonetChart extends Component{
                         <div>
                             <p className={classes.FeatureLabel}>Battery</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="80" />
+                                <ProgressBar battery="79" />
                             </div>
                         </div>
 
                         <div>
                             <p className={classes.FeatureLabel}>Display</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="80" />
+                                <ProgressBar battery="65" />
                             </div>
                         </div>
 
                         <div>
                             <p className={classes.FeatureLabel}>Display</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="80" />
+                                <ProgressBar battery="89" />
                             </div>
                         </div>
 
