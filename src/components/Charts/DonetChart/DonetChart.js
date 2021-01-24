@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 
 import classes from './DonetChart.module.css';
 
+import ProgressBar from '../../ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
 class DonetChart extends Component{
     state = {
         dataRecieved: false,
-        chartSize: 50,
+        chartSize: 80,
         mainChartData: {
             pos: this.props.itemDetails.positive,
             neg: this.props.itemDetails.negative
@@ -24,7 +25,7 @@ class DonetChart extends Component{
             neg: null
         },
         featuresArray: [],
-        features: this.props.itemDetails.features
+        features: ''
     }
 
 
@@ -37,6 +38,7 @@ class DonetChart extends Component{
         // />)
         // this.extractFeatureData();
         this.setState({dataRecieved: true})
+        this.setState({features: this.props.itemDetails.features})
 
         // const featuresArray = [];
         for (let feature in this.props.itemDetails.features) {
@@ -79,7 +81,13 @@ class DonetChart extends Component{
 
         const chartComponent = {
         chart: {
-            plotBackgroundColor: '#e1ffff',
+            marginTop: 0,
+            marginBottom: 0,
+            marginLeft: 0,
+            marginRight: 0,
+            height: 330,
+            width: 300,
+            // plotBackgroundColor: '#e1ffff',
                 plotBorderWidth: null,
                 plotShadow: false,
                 type: "pie",
@@ -123,7 +131,8 @@ class DonetChart extends Component{
             ]
         }],
             title: {
-            text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
+            // text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
+            text: ``
         },
         subtitle: {
             text: pos + '%' ,
@@ -134,20 +143,20 @@ class DonetChart extends Component{
                     floating: true,
                     color: "#000000"
             },
-            y: 200
+            y: 150
         },
             responsive: {
                 rules: [{
                     condition: {
                         maxWidth: 499
                     },
-                    chartOptions: {
-                        align: 'center',
-                        size: '40%',
-                    },
+                    // chartOptions: {
+                    //     align: 'center',
+                    //     size: '90%',
+                    // },
                     plotOptions: {
                         pie: {
-                            size: '40%'
+                            size: '90%'
                         }
                     },
                 }]
@@ -155,82 +164,82 @@ class DonetChart extends Component{
 
     }
 
-        const featureOneChartComponent = {
-            chart: {
-                plotBackgroundColor: '#e1ffff',
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: "pie",
-                style: {
-                    'float': 'right'
-                }
-
-            },
-            tooltip: {
-                pointFormat: "<b>{point.y} %</b>"
-            },
-            plotOptions: {
-                pie: {
-                    showInLegend: true,
-                    innerSize: "60%",
-                    dataLabels: {
-                        enabled: false,
-                        distance: -14,
-                        color: "white",
-                        style: {
-                            fontWeight: "bold",
-                            fontsize: 50
-                        }
-                    },
-                    size: `${this.state.chartSize}%`
-                }
-            },
-            series: [{
-                name: 'Sentiment',
-                colorByPoint: true,
-                data: [{
-                    name: 'Positive',
-                    y: pos,
-                    color: '#40A4C8'
-                },
-                    {
-                        name: 'Negative',
-                        y: neg
-                    }
-                ]
-            }],
-            title: {
-                text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
-            },
-            subtitle: {
-                text: pos + '%' ,
-                style: {
-                    fontSize: 14,
-                    fontWeight: "bold",
-                    align: 'center',
-                    floating: true,
-                    color: "#000000"
-                },
-                y: 200
-            },
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 499
-                    },
-                    chartOptions: {
-                        align: 'center',
-                        size: '40%',
-                    },
-                    plotOptions: {
-                        pie: {
-                            size: '40%'
-                        }
-                    },
-                }]
-            }
-
-        }
+        // const featureOneChartComponent = {
+        //     chart: {
+        //         plotBackgroundColor: '#e1ffff',
+        //         plotBorderWidth: null,
+        //         plotShadow: false,
+        //         type: "pie",
+        //         style: {
+        //             'float': 'right'
+        //         }
+        //
+        //     },
+        //     tooltip: {
+        //         pointFormat: "<b>{point.y} %</b>"
+        //     },
+        //     plotOptions: {
+        //         pie: {
+        //             showInLegend: true,
+        //             innerSize: "60%",
+        //             dataLabels: {
+        //                 enabled: false,
+        //                 distance: -14,
+        //                 color: "white",
+        //                 style: {
+        //                     fontWeight: "bold",
+        //                     fontsize: 50
+        //                 }
+        //             },
+        //             size: `${this.state.chartSize}%`
+        //         }
+        //     },
+        //     series: [{
+        //         name: 'Sentiment',
+        //         colorByPoint: true,
+        //         data: [{
+        //             name: 'Positive',
+        //             y: pos,
+        //             color: '#40A4C8'
+        //         },
+        //             {
+        //                 name: 'Negative',
+        //                 y: neg
+        //             }
+        //         ]
+        //     }],
+        //     title: {
+        //         text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
+        //     },
+        //     subtitle: {
+        //         text: pos + '%' ,
+        //         style: {
+        //             fontSize: 14,
+        //             fontWeight: "bold",
+        //             align: 'center',
+        //             floating: true,
+        //             color: "#000000"
+        //         },
+        //         y: 200
+        //     },
+        //     responsive: {
+        //         rules: [{
+        //             condition: {
+        //                 maxWidth: 499
+        //             },
+        //             chartOptions: {
+        //                 align: 'center',
+        //                 size: '40%',
+        //             },
+        //             plotOptions: {
+        //                 pie: {
+        //                     size: '40%'
+        //                 }
+        //             },
+        //         }]
+        //     }
+        //
+        // }
 
     // let chartView = this.props.itemDetails ?
     //
@@ -274,10 +283,44 @@ class DonetChart extends Component{
 
         return (
             <React.Fragment>
-                <div className={classes.Charts}>
-                    {chartsStock}
-                    {chartsStock}
+                {/*<p>`Sentiment Analyzed data of ${this.props.itemDetails.item}`</p>*/}
+
+                <div className={classes.ChartsRow}>
+                    <div className={classes.Cards}>
+                        <p className={classes.PieChartTitle}>Overall Report</p>
+                        <div className={classes.PieChart}>{chartsStock}</div>
+
+                    </div>
+                    {/*<div className={classes.Charts}>*/}
+                    {/*    {chartsStock}*/}
+                    {/*</div>*/}
+                    <div className={classes.Cards}>
+                        <p className={classes.PieChartTitle}>Feature Report</p>
+                        <br/>
+                        <div>
+                            <p className={classes.FeatureLabel}>Battery</p>
+                            <div className={classes.ProgressBar}>
+                                <ProgressBar battery="80" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <p className={classes.FeatureLabel}>Display</p>
+                            <div className={classes.ProgressBar}>
+                                <ProgressBar battery="80" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <p className={classes.FeatureLabel}>Display</p>
+                            <div className={classes.ProgressBar}>
+                                <ProgressBar battery="80" />
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
 
             </React.Fragment>
         )

@@ -1,6 +1,8 @@
 // import classes from './Card.module.css'
 import React from "react";
+// import ProgressBar from "../../ProgressBar/ProgressBar";
 import Card from './Card/Card'
+
 import classes from './Cards.module.css'
 
 const Cards = () => {
