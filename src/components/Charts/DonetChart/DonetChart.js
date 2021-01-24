@@ -84,8 +84,9 @@ class DonetChart extends Component{
                 plotShadow: false,
                 type: "pie",
             style: {
-                'float': 'right'
-            }
+                'float': 'right',
+                // 'font-family': 'Poppins, sans serif',
+    }
 
         },
         tooltip: {
@@ -273,7 +274,7 @@ class DonetChart extends Component{
 
         return (
             <React.Fragment>
-                <div >
+                <div className={classes.Charts}>
                     {chartsStock}
                     {chartsStock}
                 </div>

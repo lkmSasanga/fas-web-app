@@ -1,0 +1,16 @@
+.Cards {
+    display: inline-flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 10px;
+
+}
+
+@media screen and (max-width: 499px) {
+    .Cards {
+        display: block;
+
+        justify-content: center;
+        align-items: center;
+    }
+}

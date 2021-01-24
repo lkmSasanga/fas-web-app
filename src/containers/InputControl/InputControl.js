@@ -50,8 +50,8 @@ class InputControl extends Component {
                 )
         } else {
             // return <p>Enter 'tv' or 'phone'</p>
-            console.log('Enter valid item')
-            return <p>Enter valid item name</p>
+            console.log('Please enter valid item')
+            return <p className={classes.InputValidation}>Please enter valid item name</p>
         }
     }
 
@@ -63,9 +63,13 @@ class InputControl extends Component {
         return (
             <React.Fragment>
                 <div className={classes.Content}>
-                    <h2>Search Items</h2>
+                    <div>
+                        <h2  className={classes.Heading}>Search Anything</h2>
+                        <h3 className={classes.SubHeading}>We Read For You</h3>
+                    </div>
+
                     <form onSubmit={this.onChangeItemName}>
-                            <p>Items available: tv, phone </p>
+                            {/*<p>Items available: tv, phone </p>*/}
                             <input  type="text"
                                     required
                                     placeholder="Enter item Name"

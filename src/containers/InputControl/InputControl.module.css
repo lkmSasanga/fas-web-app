@@ -1,5 +1,5 @@
 .Content {
-    margin-top: 70px;
+    margin-top: 100px;
 }
 
 .Button {
@@ -22,8 +22,8 @@
 .TextInput {
     width: 45%;
     border: 1px solid #555555;
-    padding: 5px 10px;
-    height: 30px;
+    padding: 10px 10px;
+    height: 40px;
     border-radius: 30px;
     outline: none;
     color: #01181a;
@@ -31,5 +31,43 @@
     font-size: 15px;
 }
 .TextInput:hover {
-    box-shadow: 0 8px 6px -6px #b0ecfd;
+    border-color: #333;
+    border-width: 2px;
+    /*border-width: inherit;*/
+    /*box-shadow: 0 8px 6px -6px #b0ecfd;*/
+}
+
+.InputValidation {
+    color: #2d2d2d;
+    padding-top: 10px;
+    opacity: 0.7;
+    font-size: small;
+}
+
+.Heading {
+    font-size: 100px;
+    font-weight: lighter;
+    color: #333;
+}
+
+.SubHeading {
+    font-size: 20px;
+    padding-bottom: 30px;
+    letter-spacing: 10px;
+}
+
+@media (max-width: 499px) {
+    .Heading {
+        font-size: 50px;
+    }
+    .SubHeading {
+        font-size: 15px;
+    }
+    .TextInput {
+        width: 60%;
+    }
+    .InputValidation{
+        font-size: small;
+    }
+
 }

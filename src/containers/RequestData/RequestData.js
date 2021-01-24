@@ -4,6 +4,7 @@ import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import ChartDashboard from "../../components/Charts/ChartDashboard/ChartDashboard";
 import DonetChart from '../../components/Charts/DonetChart/DonetChart';
+import Cards from '../../components/Charts/Cards/Cards';
 
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
@@ -131,7 +132,7 @@ class RequestData extends Component {
                 {/*<p>Item: {this.state.selectedItem.item}</p>*/}
                 {/*<p>Negative: {this.state.selectedItem.negative}</p>*/}
                 {/*<p>Positive: {this.state.selectedItem.positive}</p>*/}
-
+                <Cards/>
                 <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
 
             </div>
@@ -156,6 +157,7 @@ class RequestData extends Component {
 
         return (
             <React.Fragment>
+
                 {form}
                 {/*{*/}
                 {/*    this.state.showChart ?  <ChartDashboard/> : null*/}

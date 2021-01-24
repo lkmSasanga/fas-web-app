@@ -4,7 +4,13 @@
     /*width: 100%;*/
     align-items: center;
     display: inline-block;
+    font-family: 'Poppins', sans-serif;
+
     /*flex-flow: row;*/
+}
+
+.Charts {
+    font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width: 499px) {
