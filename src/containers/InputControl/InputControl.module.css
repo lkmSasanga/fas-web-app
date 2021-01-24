@@ -1,5 +1,5 @@
 .Content {
-    margin-top: 100px;
+    margin-top: 56px;
 }
 
 .Button {
@@ -47,6 +47,7 @@
 .Heading {
     font-size: 100px;
     font-weight: lighter;
+    padding-top: 50px;
     color: #333;
 }
 
@@ -59,6 +60,7 @@
 @media (max-width: 499px) {
     .Heading {
         font-size: 50px;
+        padding-top: 30px;
     }
     .SubHeading {
         font-size: 15px;

@@ -30,6 +30,7 @@ class Layout extends Component {
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
+                <hr style={{marginTop: "100vh", opacity: "0"}}/>
             </React.Fragment>
         )
     }
