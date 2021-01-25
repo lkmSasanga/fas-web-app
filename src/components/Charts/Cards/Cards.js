@@ -5,13 +5,13 @@ import Card from './Card/Card'
 
 import classes from './Cards.module.css'
 
-const Cards = () => {
+const Cards = (props) => {
     return (
         <div className={classes.Cards}>
             {/*<Card>*/}
             {/*    <p>Total Read</p>*/}
             {/*</Card>*/}
-            <Card/>
+            <Card data={props.itemDetails}/>
 
         </div>
     )

@@ -124,7 +124,8 @@ class RequestData extends Component {
     render(props) {
         // this.defineData();
 
-
+        console.log('req......', this.state.selectedItem.totalCount )
+        console.log('req......', this.state.selectedItem.features )
 
         let form = (
             <div>
@@ -132,7 +133,7 @@ class RequestData extends Component {
                 {/*<p>Item: {this.state.selectedItem.item}</p>*/}
                 {/*<p>Negative: {this.state.selectedItem.negative}</p>*/}
                 {/*<p>Positive: {this.state.selectedItem.positive}</p>*/}
-                <Cards/>
+                <Cards itemDetails={this.state.selectedItem}/>
                 <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
 
             </div>

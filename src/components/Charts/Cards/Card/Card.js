@@ -5,14 +5,14 @@ import DonetChart from "../../../Charts/DonetChart/DonetChart";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { f036 } from '@fortawesome/free-solid-svg-icons'
 
-const Card = () => {
+const Card = (props) => {
   return (
       <>
           <div className={classes.Card}>
               {/*<i className="fas fa-align-left"></i>*/}
               {/*<FontAwesomeIcon icon={f036} />*/}
               <p className={classes.Title}>Feedbacks</p>
-              <p className={classes.Value}>10 456</p>
+              <p className={classes.Value}>{props.data.positive}</p>
           </div>
 
           <div className={classes.Card} >

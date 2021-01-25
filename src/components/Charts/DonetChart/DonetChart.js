@@ -301,7 +301,7 @@ class DonetChart extends Component{
                         <div>
                             <p className={classes.FeatureLabel}>Battery</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="79" />
+                                <ProgressBar battery={'43'} />
                             </div>
                         </div>
 
