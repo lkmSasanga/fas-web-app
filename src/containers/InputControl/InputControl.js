@@ -62,11 +62,13 @@ class InputControl extends Component {
         // }
         return (
             <React.Fragment>
-                <div className={classes.Content}>
+                <div className={classes.Content}>6
+                    {/*{!this.state.itemName ?*/}
                     <div>
                         <h2  className={classes.Heading}>Search Anything</h2>
                         <h3 className={classes.SubHeading}>We Read For You</h3>
                     </div>
+                    {/*}*/}
 
                     <form onSubmit={this.onChangeItemName}>
                             {/*<p>Items available: tv, phone </p>*/}
