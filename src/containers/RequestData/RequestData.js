@@ -66,6 +66,8 @@ class RequestData extends Component {
                     selectedItem: filteredArray
                 })
                 console.log(this.state.selectedItem.positive)
+                console.log(this.state.featuresArray)
+
                 // this.defineData();
             })
 
@@ -122,20 +124,28 @@ class RequestData extends Component {
     //     });
     // };
 
+    extractFeatures = () => {
+        // if (this.state.loading) {
+            for (let feature in this.props.itemDetails.features) {
+                this.state.featuresArray.push({
+                    name: this.state.selectedItem.features[feature].name,
+                    pos: this.state.selectedItem.features[feature].positive,
+                    neg: this.state.selectedItem.features[feature].negative
+                })
+            }
+            console.log('fetures array ', this.state.selectedItem.features[0])
+            console.log('fetures ....... ', this.state.featuresArray)
+
+        // }
+    }
+
     render(props) {
         // this.defineData();
 
-        // for (let feature in this.props.itemDetails.features) {
-        //     this.state.featuresArray.push({
-        //         name: this.props.itemDetails.features[feature].name,
-        //         pos: this.props.itemDetails.features[feature].positive,
-        //         neg: this.props.itemDetails.features[feature].negative
-        //     })
-        // }
-        //
-        // console.log('fetures array ', this.state.featuresArray)
 
-        console.log('req......', this.state.selectedItem.totalCount )
+
+
+        console.log('req......', this.state.selectedItem.features )
         // console.log('req......', this.state.selectedItem.features.featureOne )
 
         let form = (
@@ -146,6 +156,8 @@ class RequestData extends Component {
                 {/*<p>Positive: {this.state.selectedItem.positive}</p>*/}
                 <Cards itemDetails={this.state.selectedItem}/>
                 <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
+                {this.extractFeatures}
+
 
             </div>
             );

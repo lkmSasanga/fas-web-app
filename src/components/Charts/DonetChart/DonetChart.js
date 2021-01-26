@@ -275,7 +275,7 @@ class DonetChart extends Component{
 
 
 
-        console.log(this.props.itemDetails)
+        // console.log(this.props.itemDetails)
 
 
 

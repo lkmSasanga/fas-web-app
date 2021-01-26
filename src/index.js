@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import classes from './index.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-      <body>
-         <App />
-      </body>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.Fragment>
+        <div className={classes.body}>
+            <App />
+        </div>
+    </React.Fragment>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

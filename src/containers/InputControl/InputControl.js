@@ -62,7 +62,7 @@ class InputControl extends Component {
         // }
         return (
             <React.Fragment>
-                <div className={classes.Content}>6
+                <div className={classes.Content}>
                     {/*{!this.state.itemName ?*/}
                     <div>
                         <h2  className={classes.Heading}>Search Anything</h2>
