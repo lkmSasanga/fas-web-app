@@ -25,6 +25,7 @@ class RequestData extends Component {
             selectedItem: {},
             loading: false,
             showChart: true,
+            featuresArray: [],
             // overallItem: [
             //     { name: "negative", y: parseInt(this.state.selectedItem.negative) },
             //     { name: "positive", y: parseInt(this.state.selectedItem.positive) }
@@ -124,8 +125,18 @@ class RequestData extends Component {
     render(props) {
         // this.defineData();
 
+        // for (let feature in this.props.itemDetails.features) {
+        //     this.state.featuresArray.push({
+        //         name: this.props.itemDetails.features[feature].name,
+        //         pos: this.props.itemDetails.features[feature].positive,
+        //         neg: this.props.itemDetails.features[feature].negative
+        //     })
+        // }
+        //
+        // console.log('fetures array ', this.state.featuresArray)
+
         console.log('req......', this.state.selectedItem.totalCount )
-        console.log('req......', this.state.selectedItem.features )
+        // console.log('req......', this.state.selectedItem.features.featureOne )
 
         let form = (
             <div>

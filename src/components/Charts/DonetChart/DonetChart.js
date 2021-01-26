@@ -49,7 +49,7 @@ class DonetChart extends Component{
             })
         }
 
-        console.log('fetures array ', this.state.featuresArray)
+        console.log('fetures array ', this.state.featuresArray[0])
         // this.setState({
         //     featureOne: {
         //         name: this.state.featuresArray[0].name,

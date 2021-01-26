@@ -12,22 +12,22 @@ const Card = (props) => {
               {/*<i className="fas fa-align-left"></i>*/}
               {/*<FontAwesomeIcon icon={f036} />*/}
               <p className={classes.Title}>Feedbacks</p>
-              <p className={classes.Value}>{props.data.positive}</p>
+              <p className={classes.Value}>{props.data.totalCount}</p>
           </div>
 
           <div className={classes.Card} >
               <p className={classes.Title} >Positive</p>
-              <p className={classes.Value} style={{color: "#38e1b0"}}>4 656</p>
+              <p className={classes.Value} style={{color: "#38e1b0"}}>{props.data.positiveCount}</p>
           </div>
 
           <div className={classes.Card}>
               <p className={classes.Title} >Negative</p>
-              <p className={classes.Value} style={{color: "#f65a6f"}}>3 456</p>
+              <p className={classes.Value} style={{color: "#f65a6f"}}>{props.data.negativeCount}</p>
           </div>
 
           <div className={classes.Card}>
               <p className={classes.Title}>Features</p>
-              <p className={classes.Value} style={{color: "#efa40f"}}>5</p>
+              <p className={classes.Value} style={{color: "#efa40f"}}>{props.data.featuresCount}</p>
           </div>
 
           <div>
