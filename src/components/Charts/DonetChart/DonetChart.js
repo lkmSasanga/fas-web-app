@@ -5,6 +5,7 @@ import classes from './DonetChart.module.css';
 import ProgressBar from '../../ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import {featureOne} from "../DataProcessing";
 
 class DonetChart extends Component{
     state = {
@@ -15,7 +16,7 @@ class DonetChart extends Component{
             neg: this.props.itemDetails.negative
         },
         featureOne: {
-            name: '',
+            name: this.props.itemDetails.features,
             pos: null,
             neg: null
         },
@@ -25,12 +26,8 @@ class DonetChart extends Component{
             neg: null
         },
         featuresArray: [],
-        features: ''
+        features: {}
     }
-
-
-
-
 
     componentDidMount() {
         // this.runChart();
@@ -42,16 +39,23 @@ class DonetChart extends Component{
         this.setState({dataRecieved: true})
         this.setState({features: this.props.itemDetails.features})
 
-        // const featuresArray = [];
+        const featuresArray = [];
         for (let feature in this.props.itemDetails.features) {
-            this.state.featuresArray.push({
+            featuresArray.push({
                 name: this.props.itemDetails.features[feature].name,
                 pos: this.props.itemDetails.features[feature].positive,
                 neg: this.props.itemDetails.features[feature].negative
             })
         }
+        this.setState({featuresArray: featuresArray})
 
-        // console.log('features array ', this.state.featuresArray[0])
+        // console.log('features array ', this.state.featuresArray[0].name)
+        // console.log('features array ', this.state.featuresArray[0].pos)
+        // console.log('features array ', this.state.featuresArray[0].neg)
+
+        console.log(this.props.itemDetails.features)
+
+
 
         // this.setState({
         //     featureOne: {
@@ -62,22 +66,20 @@ class DonetChart extends Component{
         // })
         // console.log(this.state.featuresArray[0].name)
         // console.log(this.state.featuresArray[0].pos)
-
     }
 
-    componentWillUnmount() {
-        this.setState({dataRecieved: false})
-    }
+    // componentWillUnmount() {
+    //     this.setState({dataRecieved: false})
+    // }
 
-    mainChart = () => {
-
-    }
-
-    extractFeatureData = (props) => {
-
-    }
 
     render (props) {
+
+        // if (this.state.featuresArray) {
+        //     console.log('features array ', this.state.featuresArray[0].name)
+        //     console.log('features array ', this.state.featuresArray[0].pos)
+        //     console.log('features array ', this.state.featuresArray[0].neg)
+        // }
 
         // let passiveIfSupported = false;
         //
@@ -98,8 +100,6 @@ class DonetChart extends Component{
         //     // can't use event.preventDefault();
         //     // event.preventDefault()
         // }, passiveIfSupported );
-
-
 
 
         var pos = parseInt(this.props.itemDetails.positive)
@@ -189,84 +189,6 @@ class DonetChart extends Component{
             }
 
     }
-
-        // const featureOneChartComponent = {
-        //     chart: {
-        //         plotBackgroundColor: '#e1ffff',
-        //         plotBorderWidth: null,
-        //         plotShadow: false,
-        //         type: "pie",
-        //         style: {
-        //             'float': 'right'
-        //         }
-        //
-        //     },
-        //     tooltip: {
-        //         pointFormat: "<b>{point.y} %</b>"
-        //     },
-        //     plotOptions: {
-        //         pie: {
-        //             showInLegend: true,
-        //             innerSize: "60%",
-        //             dataLabels: {
-        //                 enabled: false,
-        //                 distance: -14,
-        //                 color: "white",
-        //                 style: {
-        //                     fontWeight: "bold",
-        //                     fontsize: 50
-        //                 }
-        //             },
-        //             size: `${this.state.chartSize}%`
-        //         }
-        //     },
-        //     series: [{
-        //         name: 'Sentiment',
-        //         colorByPoint: true,
-        //         data: [{
-        //             name: 'Positive',
-        //             y: pos,
-        //             color: '#40A4C8'
-        //         },
-        //             {
-        //                 name: 'Negative',
-        //                 y: neg
-        //             }
-        //         ]
-        //     }],
-        //     title: {
-        //         text: `Sentiment Analyzed data of ${this.props.itemDetails.item}`
-        //     },
-        //     subtitle: {
-        //         text: pos + '%' ,
-        //         style: {
-        //             fontSize: 14,
-        //             fontWeight: "bold",
-        //             align: 'center',
-        //             floating: true,
-        //             color: "#000000"
-        //         },
-        //         y: 200
-        //     },
-        //     responsive: {
-        //         rules: [{
-        //             condition: {
-        //                 maxWidth: 499
-        //             },
-        //             chartOptions: {
-        //                 align: 'center',
-        //                 size: '40%',
-        //             },
-        //             plotOptions: {
-        //                 pie: {
-        //                     size: '40%'
-        //                 }
-        //             },
-        //         }]
-        //     }
-        //
-        // }
-
     // let chartView = this.props.itemDetails ?
     //
     // if (this.props.itemDetails) {
@@ -290,21 +212,6 @@ class DonetChart extends Component{
             </div>
         )
 
-        // let featureCharts = (
-        //     <div className={classes.DonetChart}>
-        //         <HighchartsReact
-        //             highcharts={Highcharts}
-        //             options={chartComponent}
-        //         />
-        //     </div>
-        // )
-
-
-
-        // console.log(this.props.itemDetails)
-
-
-
         const itemName = String(this.props.itemDetails.item)
         const capitalizedName = itemName.charAt(0).toUpperCase() + itemName.slice(1)
 
@@ -322,31 +229,34 @@ class DonetChart extends Component{
                     {/*<div className={classes.Charts}>*/}
                     {/*    {chartsStock}*/}
                     {/*</div>*/}
-                    <div className={classes.Cards}>
+
+                    {this.props.itemDetails.features ?
+                        <div className={classes.Cards}>
                         <p className={classes.PieChartTitle}>Feature Report</p>
                         <br/>
                         <div>
                             <p className={classes.FeatureLabel}>Battery</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery={'43'} />
+                                <ProgressBar battery={'43'}/>
                             </div>
                         </div>
 
                         <div>
                             <p className={classes.FeatureLabel}>Display</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="65" />
+                                <ProgressBar battery="65"/>
                             </div>
                         </div>
 
                         <div>
                             <p className={classes.FeatureLabel}>Display</p>
                             <div className={classes.ProgressBar}>
-                                <ProgressBar battery="89" />
+                                <ProgressBar battery="89"/>
                             </div>
                         </div>
 
-                    </div>
+                    </div> : null
+                    }
                 </div>
 
 

@@ -6,6 +6,7 @@ import Card from './Card/Card'
 import classes from './Cards.module.css'
 
 const Cards = (props) => {
+    console.log('from cards')
     return (
         <div className={classes.Cards}>
             {/*<Card>*/}

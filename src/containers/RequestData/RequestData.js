@@ -44,7 +44,6 @@ class RequestData extends Component {
             // ]
         };
 
-
     componentDidMount() {
         this.setState({loading: true})
 
@@ -65,7 +64,7 @@ class RequestData extends Component {
                     items: response.data,
                     selectedItem: filteredArray
                 })
-                // console.log(this.state.selectedItem.positive)
+                console.log(this.state.selectedItem.name)
                 // console.log(this.state.featuresArray)
 
                 // this.defineData();
@@ -74,10 +73,6 @@ class RequestData extends Component {
             .catch((error) => {
                 console.log(error);
             })
-
-
-
-
 
         // from charts
         // DataProcessing();
@@ -139,8 +134,7 @@ class RequestData extends Component {
         // }
     }
 
-    render(props) {
-        // this.defineData();
+    render() {
 
         // console.log('req......', this.state.selectedItem.features )
         // console.log('req......', this.state.selectedItem.features.featureOne )
@@ -148,9 +142,6 @@ class RequestData extends Component {
         let form = (
             <div>
                 <br/>
-                {/*<p>Item: {this.state.selectedItem.item}</p>*/}
-                {/*<p>Negative: {this.state.selectedItem.negative}</p>*/}
-                {/*<p>Positive: {this.state.selectedItem.positive}</p>*/}
                 <Cards itemDetails={this.state.selectedItem}/>
                 <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
                 {/*{this.extractFeatures}*/}
@@ -174,12 +165,10 @@ class RequestData extends Component {
         //    showingChart =
         // }
 
-
-
         return (
             <React.Fragment>
 
-                {form}
+                {!this.state.loading ? form : null}
                 {/*{*/}
                 {/*    this.state.showChart ?  <ChartDashboard/> : null*/}
                 {/*}*/}
