@@ -66,7 +66,7 @@ class InputControl extends Component {
 
 
     render() {
-
+        console.log('from input control')
         return (
             <React.Fragment>
                 <div className={classes.Content}>

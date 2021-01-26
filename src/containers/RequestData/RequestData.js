@@ -139,19 +139,18 @@ class RequestData extends Component {
         // console.log('req......', this.state.selectedItem.features )
         // console.log('req......', this.state.selectedItem.features.featureOne )
 
-        let form = (
-            <div>
-                <br/>
-                <Cards itemDetails={this.state.selectedItem}/>
-                <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
-                {/*{this.extractFeatures}*/}
-
-
-            </div>
-            );
+        let form = null
 
         if (this.state.loading) {
             form = <Spinner/>
+        } else if(!this.state.loading){
+            form = (
+                <div>
+                    <br/>
+                    <Cards itemDetails={this.state.selectedItem}/>
+                    <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
+                </div>
+            );
         }
 
         // let showingChart = (
@@ -168,7 +167,7 @@ class RequestData extends Component {
         return (
             <React.Fragment>
 
-                {!this.state.loading ? form : null}
+                {form}
                 {/*{*/}
                 {/*    this.state.showChart ?  <ChartDashboard/> : null*/}
                 {/*}*/}

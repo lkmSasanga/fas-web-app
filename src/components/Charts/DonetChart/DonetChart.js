@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import classes from './DonetChart.module.css';
 
-import ProgressBar from '../../ProgressBar/ProgressBar'
+import ProgressBar from '../../ProgreessBars/ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import {featureOne} from "../DataProcessing";
+import ProgressBars from "../../ProgreessBars/ProgressBars";
 
 class DonetChart extends Component{
     state = {
@@ -40,11 +40,11 @@ class DonetChart extends Component{
         this.setState({features: this.props.itemDetails.features})
 
         const featuresArray = [];
-        for (let feature in this.props.itemDetails.features) {
+        for (let feature in this.state.features) {
             featuresArray.push({
-                name: this.props.itemDetails.features[feature].name,
-                pos: this.props.itemDetails.features[feature].positive,
-                neg: this.props.itemDetails.features[feature].negative
+                name: this.state.features[feature].name,
+                pos: this.state.features[feature].positive,
+                neg: this.state.features[feature].negative
             })
         }
         this.setState({featuresArray: featuresArray})
@@ -53,7 +53,7 @@ class DonetChart extends Component{
         // console.log('features array ', this.state.featuresArray[0].pos)
         // console.log('features array ', this.state.featuresArray[0].neg)
 
-        console.log(this.props.itemDetails.features)
+        console.log(this.state.features)
 
 
 
@@ -217,49 +217,16 @@ class DonetChart extends Component{
 
         return (
             <React.Fragment>
-                {/*<p>`Sentiment Analyzed data of ${this.props.itemDetails.item}`</p>*/}
-
                 <div className={classes.ChartsRow}>
                     <div className={classes.Cards}>
                         <p className={classes.PieChartTitle}>Overall Report</p>
                         <p className={classes.PieChartItemName}>{capitalizedName}</p>
                         <div className={classes.PieChart}>{chartsStock}</div>
-
                     </div>
-                    {/*<div className={classes.Charts}>*/}
-                    {/*    {chartsStock}*/}
-                    {/*</div>*/}
 
-                    {this.props.itemDetails.features ?
-                        <div className={classes.Cards}>
-                        <p className={classes.PieChartTitle}>Feature Report</p>
-                        <br/>
-                        <div>
-                            <p className={classes.FeatureLabel}>Battery</p>
-                            <div className={classes.ProgressBar}>
-                                <ProgressBar battery={'43'}/>
-                            </div>
-                        </div>
+                    <ProgressBars/>
 
-                        <div>
-                            <p className={classes.FeatureLabel}>Display</p>
-                            <div className={classes.ProgressBar}>
-                                <ProgressBar battery="65"/>
-                            </div>
-                        </div>
-
-                        <div>
-                            <p className={classes.FeatureLabel}>Display</p>
-                            <div className={classes.ProgressBar}>
-                                <ProgressBar battery="89"/>
-                            </div>
-                        </div>
-
-                    </div> : null
-                    }
                 </div>
-
-
             </React.Fragment>
         )
     };
