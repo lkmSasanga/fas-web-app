@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Card.module.css'
-import Chart from '../../../Charts/DonetChart/DonetChart'
-import DonetChart from "../../../Charts/DonetChart/DonetChart";
+// import Chart from '../../../Charts/DonetChart/DonetChart'
+// import DonetChart from "../../../Charts/DonetChart/DonetChart";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { f036 } from '@fortawesome/free-solid-svg-icons'
 

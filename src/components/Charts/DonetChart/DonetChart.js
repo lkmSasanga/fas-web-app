@@ -264,14 +264,14 @@ class DonetChart extends Component{
             </div>
         )
 
-        let featureCharts = (
-            <div className={classes.DonetChart}>
-                <HighchartsReact
-                    highcharts={Highcharts}
-                    options={chartComponent}
-                />
-            </div>
-        )
+        // let featureCharts = (
+        //     <div className={classes.DonetChart}>
+        //         <HighchartsReact
+        //             highcharts={Highcharts}
+        //             options={chartComponent}
+        //         />
+        //     </div>
+        // )
 
 
 

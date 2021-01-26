@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
-import ChartDashboard from "../../components/Charts/ChartDashboard/ChartDashboard";
+// import ChartDashboard from "../../components/Charts/ChartDashboard/ChartDashboard";
 import DonetChart from '../../components/Charts/DonetChart/DonetChart';
 import Cards from '../../components/Charts/Cards/Cards';
 
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+// import Highcharts from 'highcharts'
+// import HighchartsReact from 'highcharts-react-official'
 
 // import DataProcessing, {
 //     overallItem,
@@ -15,7 +15,7 @@ import HighchartsReact from 'highcharts-react-official'
 //     featureTwo,
 //     featureThree
 // } from "../../components/Charts/DataProcessing";
-import Dashboard from "../Dashboard/Dashboard";
+// import Dashboard from "../Dashboard/Dashboard";
 
 class RequestData extends Component {
 
@@ -156,7 +156,7 @@ class RequestData extends Component {
                 {/*<p>Positive: {this.state.selectedItem.positive}</p>*/}
                 <Cards itemDetails={this.state.selectedItem}/>
                 <DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>
-                {this.extractFeatures}
+                {/*{this.extractFeatures}*/}
 
 
             </div>

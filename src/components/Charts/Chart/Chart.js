@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-let overallItem = [],
-    featureOne = [],
-    featureTwo = [],
-    featureThree = [];
+// let overallItem = [],
+//     featureOne = [],
+//     featureTwo = [],
+//     featureThree = [];
 
 class Chart extends Component {
     state = {
@@ -78,27 +78,27 @@ class Chart extends Component {
         });
     };
 
-    dataProcessing = (props) => {
-        overallItem = [
-            { name: "negative", y: 50 },
-            { name: "positive", y: 50 }
-        ];
-
-        featureOne = [
-            { name: "negative", y: 20 },
-            { name: "positive", y: 80 }
-        ];
-
-        featureTwo = [
-            { name: "negative", y: 45 },
-            { name: "positive", y: 55 }
-        ];
-
-        featureThree = [
-            { name: "negative", y: 90 },
-            { name: "positive", y: 10 }
-        ];
-    };
+    // dataProcessing = (props) => {
+    //     overallItem = [
+    //         { name: "negative", y: 50 },
+    //         { name: "positive", y: 50 }
+    //     ];
+    //
+    //     featureOne = [
+    //         { name: "negative", y: 20 },
+    //         { name: "positive", y: 80 }
+    //     ];
+    //
+    //     featureTwo = [
+    //         { name: "negative", y: 45 },
+    //         { name: "positive", y: 55 }
+    //     ];
+    //
+    //     featureThree = [
+    //         { name: "negative", y: 90 },
+    //         { name: "positive", y: 10 }
+    //     ];
+    // };
 
 
     render() {

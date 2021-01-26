@@ -50,7 +50,7 @@ class InputControl extends Component {
                 )
         } else {
             // return <p>Enter 'tv' or 'phone'</p>
-            console.log('Please enter valid item')
+            // console.log('Please enter valid item')
             return <p className={classes.InputValidation}>Please enter valid item name</p>
         }
     }
