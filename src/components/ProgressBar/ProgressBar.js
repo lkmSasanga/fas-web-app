@@ -1,28 +1,44 @@
 import classes from './ProgressBar.module.css'
-import React, { useState } from "react";
+import React, { Component } from "react";
 
-const ProgressBar = (props) => {
-    const [style, setStyle] = useState({});
+class ProgressBar extends Component{
+    // const [style, setStyle] = useState({});
 
-    setTimeout(() => {
-        const newStyle = {
+    // setTimeout(() => {
+    //     const newStyle = {
+    //         opacity: 1,
+    //         width: `${props.battery}%`
+    //     }
+    //
+    //     setStyle(newStyle);
+    // }, );
+    state = {
+        newStyle: {}
+    }
+
+    componentDidMount() {
+        const styleAdd = {
             opacity: 1,
-            width: `${props.battery}%`
+            width: `${this.props.battery}%`
         }
+        this.setState({newStyle: styleAdd})
+    }
 
-        setStyle(newStyle);
-    }, );
+    render() {
 
-    return (
-        <div className={classes.progress}>
-            <div className={classes.progressDone} style={style}>
-                <div style={{fontSize:'15px'}}>
-                    {props.battery}%
+        return (
+            <div className={classes.progress}>
+                <div className={classes.progressDone} style={this.state.newStyle}>
+                    <div style={{fontSize:'15px'}}>
+                        {this.props.battery}%
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-    )
+        )
+    }
+
+
 }
 
 export default ProgressBar
