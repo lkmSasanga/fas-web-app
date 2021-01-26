@@ -30,6 +30,8 @@ class DonetChart extends Component{
 
 
 
+
+
     componentDidMount() {
         // this.runChart();
         // let chartView = (<HighchartsReact
@@ -75,6 +77,29 @@ class DonetChart extends Component{
     }
 
     render (props) {
+
+        // let passiveIfSupported = false;
+        //
+        // try {
+        //     window.addEventListener("test", null,
+        //         Object.defineProperty(
+        //             {},
+        //             "passive",
+        //             {
+        //                 get: function() { passiveIfSupported = { passive: true }; }
+        //             }
+        //         )
+        //     );
+        // } catch(err) {}
+        //
+        // window.addEventListener('scroll', function(event) {
+        //     /* do something */
+        //     // can't use event.preventDefault();
+        //     // event.preventDefault()
+        // }, passiveIfSupported );
+
+
+
 
         var pos = parseInt(this.props.itemDetails.positive)
         var neg = parseInt(this.props.itemDetails.negative)

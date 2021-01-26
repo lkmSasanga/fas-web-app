@@ -2,21 +2,19 @@ import React, {Component} from "react";
 import classes from './InputControl.module.css';
 
 import ItemNameOutput from '../RequestData/RequestData';
-// import Spinner from '../../components/UI/Spinner/Spinner';
 
 class InputControl extends Component {
     state = {
         itemName: '',
         staticName: '',
-        // loading: false
+        matchFound: false,
+        clicked: false
     }
 
     onChangeItemName = (e) =>{
         e.preventDefault()
-        // console.log("target value:",e.target.value)
         this.setState({
             itemName: e.target.value
-
         })
     }
 
@@ -37,6 +35,10 @@ class InputControl extends Component {
         // return ( <ItemNameOutput name={this.state.itemName}/>)
     }
 
+    onClickHandler = () => {
+        this.setState({clicked: true})
+    }
+
     runSentimentDataComponent = () => {
         const itemNameCheck = this.state.itemName
         if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop'){
@@ -44,22 +46,27 @@ class InputControl extends Component {
             // console.log('Static name : ' , this.state.staticName)
             return (
                 <div>
-                    {/*{this.setState({loading: true})}*/}
+                    {/*{this.setState({matchFound: true})}*/}
                     <ItemNameOutput name={this.state.itemName}/>
                 </div>
-                )
+            )
         } else {
-            // return <p>Enter 'tv' or 'phone'</p>
-            // console.log('Please enter valid item')
-            return <p className={classes.InputValidation}>Please enter valid item name</p>
+
+            return (
+                <>
+                    {this.state.clicked ?
+                        <p className={classes.InputValidation}>Please enter valid item name</p> : null
+                    }
+                </>
+
+            )
         }
+
     }
 
 
     render() {
-        // if (this.state.loading) {
-        //     const spinner = <Spinner/>
-        // }
+
         return (
             <React.Fragment>
                 <div className={classes.Content}>
@@ -78,12 +85,16 @@ class InputControl extends Component {
                                     // name='itemName'
                                     className={classes.TextInput}
                                     // defaultValue={this.state.itemName}
-                                    onChange={this.onChangeItemName}/>
+                                    onChange={this.onChangeItemName}
+                                    onClick={this.onClickHandler}
+                            />
 
                         {/*<button className={classes.Button}>Search</button>*/}
+                        {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                     </form>
                     {/*<p>{this.state.itemName}</p>*/}
-                    { this.runSentimentDataComponent() }
+                    {  this.runSentimentDataComponent()}
+                    {/*{ this.runSentimentDataComponent}*/}
                 </div>
             </React.Fragment>
         )
