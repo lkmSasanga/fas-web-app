@@ -279,7 +279,8 @@ class DonetChart extends Component{
 
 
 
-
+        const itemName = String(this.props.itemDetails.item)
+        const capitalizedName = itemName.charAt(0).toUpperCase() + itemName.slice(1)
 
         return (
             <React.Fragment>
@@ -288,7 +289,7 @@ class DonetChart extends Component{
                 <div className={classes.ChartsRow}>
                     <div className={classes.Cards}>
                         <p className={classes.PieChartTitle}>Overall Report</p>
-                        <p className={classes.PieChartItemName}>I Phone 7</p>
+                        <p className={classes.PieChartItemName}>{capitalizedName}</p>
                         <div className={classes.PieChart}>{chartsStock}</div>
 
                     </div>
