@@ -80,6 +80,7 @@ class InputControl extends Component {
                     <form onSubmit={this.onChangeItemName}>
                             {/*<p>Items available: tv, phone </p>*/}
                             <input  type="text"
+                                    autoFocus
                                     required
                                     placeholder="Enter item Name"
                                     // name='itemName'

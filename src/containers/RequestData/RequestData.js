@@ -45,7 +45,7 @@ class RequestData extends Component {
         };
 
 
-    componentDidMount(props) {
+    componentDidMount() {
         this.setState({loading: true})
 
         // url which is node output the data
@@ -65,8 +65,8 @@ class RequestData extends Component {
                     items: response.data,
                     selectedItem: filteredArray
                 })
-                console.log(this.state.selectedItem.positive)
-                console.log(this.state.featuresArray)
+                // console.log(this.state.selectedItem.positive)
+                // console.log(this.state.featuresArray)
 
                 // this.defineData();
             })
@@ -142,10 +142,7 @@ class RequestData extends Component {
     render(props) {
         // this.defineData();
 
-
-
-
-        console.log('req......', this.state.selectedItem.features )
+        // console.log('req......', this.state.selectedItem.features )
         // console.log('req......', this.state.selectedItem.features.featureOne )
 
         let form = (
