@@ -14,7 +14,7 @@ class App extends Component{
                     <div className="App">
                         <Layout>
                             <Switch>
-                                <Route path="/dashboard" component={Dashboard}/>
+                                {/*<Route path="/dashboard" component={Dashboard}/>*/}
                                 <Route path="/" component={InputControl}/>
                             </Switch>
                         </Layout>
