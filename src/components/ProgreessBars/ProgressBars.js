@@ -13,7 +13,7 @@ class ProgressBars extends Component {
     }
 
     render() {
-        console.log('loading...', this.state.loaded)
+        // console.log('loading...', this.state.loaded)
 
         return(
             <div>
