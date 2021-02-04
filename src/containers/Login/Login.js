@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import Classes from './Login.module.css';
 
 class Login extends Component {
+
+    SignUpClickHandler = () => {
+
+    }
+
     render() {
         return (
             <div className={Classes.wrapper}>
                 <div className={Classes.title}>
-                    Login Form
+                    Welcome
                 </div>
                 <form action="#">
                     <div className={Classes.field}>
@@ -29,7 +34,7 @@ class Login extends Component {
                         <input type="submit" value="Login"/>
                     </div>
                     <div className={Classes.signupLink}>
-                        Not a member? <a href="#">Signup now</a></div>
+                        Not a member? <a href="/signup" onClick={this.SignUpClickHandler}>Signup now</a></div>
                 </form>
             </div>
         )
