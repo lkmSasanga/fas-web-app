@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import './App.css';
-import Layout from './containers/Layout/Layout';
+// import Layout from './containers/Layout/Layout';
 import InputControl from './containers/InputControl/InputControl';
-import Dashboard from "./containers/Dashboard/Dashboard";
+import Login from "./containers/Login/Login";
 
 class App extends Component{
     render() {
@@ -12,12 +12,12 @@ class App extends Component{
             <BrowserRouter>
                 <Route>
                     <div className="App">
-                        <Layout>
+                        {/*<Layout>*/}
                             <Switch>
-                                {/*<Route path="/dashboard" component={Dashboard}/>*/}
-                                <Route path="/" component={InputControl}/>
+                                <Route path="/login" component={Login}/>
+                                <Route path="/search" component={InputControl}/>
                             </Switch>
-                        </Layout>
+                        {/*</Layout>*/}
                     </div>
 
 
