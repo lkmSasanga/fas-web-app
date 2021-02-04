@@ -14,15 +14,12 @@ class App extends Component{
                     <div className="App">
                         {/*<Layout>*/}
                             <Switch>
-                                <Route path="/login" component={Login}/>
+                                <Route path="/" component={Login}/>
                                 <Route path="/search" component={InputControl}/>
                             </Switch>
                         {/*</Layout>*/}
                     </div>
-
-
                 </Route>
-
             </BrowserRouter>
 
         );
