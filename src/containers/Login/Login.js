@@ -7,7 +7,28 @@ import InputControl from "../InputControl/InputControl";
 
 class Login extends Component {
     state = {
-        clicked: false
+        clicked: false,
+        email: '',
+        password: ''
+    }
+    onChangeEmail = (e) => {
+        e.preventDefault()
+        this.setState({email: e.target.value})
+    }
+    onChangePassword = (e) => {
+        e.preventDefault()
+        this.setState({password: e.target.value})
+    }
+    onFormSubmit = (e) => {
+        e.preventDefault()
+        const data = new FormData(e.target)
+        fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            body: {
+                email: this.state.email,
+                password: this.state.password
+            }
+        }).then(result => console.log('form submit successful'))
     }
 
     SignUpClickHandler = () => {
@@ -18,24 +39,28 @@ class Login extends Component {
         e.preventDefault()
         console.log('clicked')
         this.setState({ clicked: true })
+        this.onFormSubmit()
         // this.props.history.push('/search');
         // return <Signup/>
     }
 
     render() {
+        console.log(this.state.email)
+        console.log(this.state.password)
+
         return (
             <div> { !this.state.clicked ?
                 <div className={Classes.wrapper}>
                     <div className={Classes.title}>
                         Welcome
                     </div>
-                    <form action="#">
+                    <form action="#" onSubmit={this.onFormSubmit}>
                         <div className={Classes.field}>
-                            <input type="text" required/>
+                            <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
                             <label>Email Address</label>
                         </div>
                         <div className={Classes.field}>
-                            <input type="password" required/>
+                            <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
                             <label>Password</label>
                         </div>
                         <div className={Classes.content}>
