@@ -20,7 +20,7 @@ class Login extends Component {
         this.setState({password: e.target.value})
     }
     onFormSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         const data = new FormData(e.target)
         fetch('http://localhost:5000/api/login', {
             method: 'POST',
