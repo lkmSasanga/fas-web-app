@@ -19,17 +19,17 @@ class Login extends Component {
         e.preventDefault()
         this.setState({password: e.target.value})
     }
-    onFormSubmit = (e) => {
-        // e.preventDefault()
-        const data = new FormData(e.target)
-        fetch('http://localhost:5000/api/login', {
-            method: 'POST',
-            body: {
-                email: this.state.email,
-                password: this.state.password
-            }
-        }).then(result => console.log('form submit successful'))
-    }
+    // onFormSubmit = (e) => {
+    //     // e.preventDefault()
+    //     const data = new FormData(e.target)
+    //     fetch('http://localhost:5000/api/login', {
+    //         method: 'POST',
+    //         body: {
+    //             email: this.state.email,
+    //             password: this.state.password
+    //         }
+    //     }).then(result => console.log('form submit successful'))
+    // }
 
     SignUpClickHandler = () => {
         return <Signup/>
@@ -39,7 +39,37 @@ class Login extends Component {
         e.preventDefault()
         console.log('clicked')
         this.setState({ clicked: true })
-        this.onFormSubmit()
+
+        fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password,
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                if (json.success) {
+                    this.setState({
+                        // signUpError: json.message,
+                        // isLoading: false,
+                        email: '',
+                        password: '',
+                    });
+                }
+                // else {
+                //     this.setState({
+                //         signUpError: json.message,
+                //         isLoading: false,
+                //     });
+                // }
+            });
+
+
+
         // this.props.history.push('/search');
         // return <Signup/>
     }
