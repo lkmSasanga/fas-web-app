@@ -17,7 +17,7 @@ const Card = (props) => {
 
           <div className={classes.Card} >
               <p className={classes.Title} >Positive</p>
-              <p className={classes.Value} style={{color: "#38e1b0"}}>{props.data.positive}%</p>
+              <p className={classes.Value} style={{color: "#1fd985"}}>{props.data.positive}%</p>
           </div>
 
           <div className={classes.Card}>

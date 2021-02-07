@@ -148,7 +148,7 @@ class DonetChart extends Component{
             data: [{
                 name: 'Positive',
                 y: pos,
-                color: '#38e1b1',
+                color: '#1fd985',
             },
                 {
                     name: 'Negative',
@@ -170,7 +170,7 @@ class DonetChart extends Component{
                     floating: true,
                     color: "#000000"
             },
-            y: 150
+            y: 160
         },
             responsive: {
                 rules: [{

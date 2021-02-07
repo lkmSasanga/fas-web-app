@@ -25,8 +25,8 @@
 }
 /*38e1b0*/
 .progressDone {
-    background: linear-gradient(to left, #38e1cd, #54e0db);
-    box-shadow: 0 3px 3px -5px #45d5ab, 0 2px 5px #73eec8;
+    background: linear-gradient(to left, #1fd985, #6fdc52);
+    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
     border-radius: 20px;
     color: #fff;
     display: flex;
