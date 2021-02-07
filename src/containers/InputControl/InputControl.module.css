@@ -35,7 +35,7 @@
     /*background-color: #13c453;*/
 }
 .TextInput {
-    width: 45%;
+    width: 450px;
     border: 1px solid #555555;
     padding: 10px 25px;
     height: 40px;
@@ -83,7 +83,7 @@
         font-size: 15px;
     }
     .TextInput {
-        width: 60%;
+        width: 55%;
     }
     .InputValidation{
         font-size: small;
