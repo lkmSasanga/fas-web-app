@@ -9,14 +9,6 @@ import Cards from '../../components/Charts/Cards/Cards';
 // import Highcharts from 'highcharts'
 // import HighchartsReact from 'highcharts-react-official'
 
-// import DataProcessing, {
-//     overallItem,
-//     featureOne,
-//     featureTwo,
-//     featureThree
-// } from "../../components/Charts/DataProcessing";
-// import Dashboard from "../Dashboard/Dashboard";
-
 class RequestData extends Component {
 
         state = {
@@ -26,22 +18,6 @@ class RequestData extends Component {
             loading: false,
             showChart: true,
             featuresArray: [],
-            // overallItem: [
-            //     { name: "negative", y: parseInt(this.state.selectedItem.negative) },
-            //     { name: "positive", y: parseInt(this.state.selectedItem.positive) }
-            //     ],
-            // featureOne: [
-            //     { name: "negative", y: 20 },
-            //     { name: "positive", y: 80 }
-            // ],
-            // featureTwo: [
-            //     { name: "negative", y: 45 },
-            //     { name: "positive", y: 55 }
-            // ],
-            // featureThree: [
-            //     { name: "negative", y: 90 },
-            //     { name: "positive", y: 10 }
-            // ]
         };
 
     componentDidMount() {
@@ -79,45 +55,6 @@ class RequestData extends Component {
         // this.copyDataSeries();
     }
 
-    // defineData = () => {
-    //     console.log('selected item : chartData',this.state.selectedItem.negative)
-    //
-    //     let pos = parseInt(this.state.selectedItem.positive)
-    //     let neg = parseInt(this.state.selectedItem.negative)
-
-        // let overallItem = [
-        //     { name: "negative", y: neg },
-        //     { name: "positive", y: pos }
-        // ];
-        //
-        // let featureOne = [
-        //     { name: "negative", y: 20 },
-        //     { name: "positive", y: 80 }
-        // ];
-        //
-        // let featureTwo = [
-        //     { name: "negative", y: 45 },
-        //     { name: "positive", y: 55 }
-        // ];
-        //
-        // let featureThree = [
-        //     { name: "negative", y: 90 },
-        //     { name: "positive", y: 10 }
-        // ];
-
-    // }
-
-    // copyDataSeries = (obj = {}) => {
-    //     this.setState({
-    //         charts: [
-    //             { serie: this.state.overallItem, title: `Overall ${this.props.name}`},
-    //             { serie: this.state.featureOne, title: `${this.props.name}: battery` },
-    //             { serie: this.state.featureTwo, title: `${this.props.name}: display` },
-    //             { serie: this.state.featureThree, title: `Gender` }
-    //         ],
-    //         chartData: this.state.selectedItem
-    //     });
-    // };
 
     extractFeatures = () => {
         // if (this.state.loading) {
@@ -135,10 +72,6 @@ class RequestData extends Component {
     }
 
     render() {
-
-        // console.log('req......', this.state.selectedItem.features )
-        // console.log('req......', this.state.selectedItem.features.featureOne )
-
         let form = null
 
         if (this.state.loading) {
@@ -153,48 +86,20 @@ class RequestData extends Component {
             );
         }
 
-        // let showingChart = (
-        //     <HighchartsReact className = "col-md-6"
-        //                      highcharts = { Highcharts }
-        //         // options = { batteryOptions }
-        //     />
-        // )
-        //
-        // if(this.state.showChart) {
-        //    showingChart =
-        // }
-
         return (
             <React.Fragment>
-
                 {form}
-                {/*{*/}
-                {/*    this.state.showChart ?  <ChartDashboard/> : null*/}
-                {/*}*/}
-
-                {/*<HighchartsReact highcharts = { Highcharts }*/}
-                {/*                 options = { itemOptions }*/}
-                {/*/>*/}
                 <br/>
 
                 { this.state.showChart ?
                     <div className="row">
-                        {/*<HighchartsReact*/}
-                        {/*    className="col-md-6"*/}
-                        {/*    highcharts={Highcharts}*/}
-                        {/*    options = { itemOptions }*/}
-                        {/*/>*/}
-
                         {/*<DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>*/}
 
 
                     </div> : null
                 }
-
                 {/*<ChartDashboard charts={this.state.charts} chartData={this.state.selectedItem}/>*/}
-
             </React.Fragment>
-
         )
     }
 }
