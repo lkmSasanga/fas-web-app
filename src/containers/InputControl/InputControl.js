@@ -14,6 +14,9 @@ class InputControl extends Component {
 
     onChangeItemName = (e) =>{
         e.preventDefault()
+        // if (!e.target.value) {
+        //     this.setState({itemName: ''})
+        // }
         this.setState({
             itemName: e.target.value
         })
@@ -27,7 +30,15 @@ class InputControl extends Component {
     }
     onButtonClick = (e) => {
         console.log('button click')
-        this.setState({ buttonClicked: true })
+        this.setState({
+            buttonClicked: true,
+        })
+        this.runSentimentDataComponent()
+
+    }
+
+    runSentimentDataComponent = () => {
+        // const itemNameCheck = this.state.itemName
         if (this.state.itemName) {
             return (
                 <div>
@@ -48,29 +59,6 @@ class InputControl extends Component {
         }
     }
 
-    runSentimentDataComponent = () => {
-        const itemNameCheck = this.state.itemName
-        // if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop' || itemNameCheck === 'HP i7'){
-
-            // return (
-            //     <div>
-            //         {/*{this.setState({matchFound: true})}*/}
-            //         <ItemNameOutput name={this.state.itemName}/>
-            //     </div>
-            // )
-        // }
-        // else {
-        //     return (
-        //         <>
-        //             {this.state.clicked ?
-        //                 <p className={classes.InputValidation}>Please enter valid item name</p> : null
-        //             }
-        //         </>
-        //
-        //     )
-        // }
-
-    }
 
     render() {
         console.log('from input control')
@@ -87,6 +75,7 @@ class InputControl extends Component {
                         <form onSubmit={this.onChangeItemName}>
                             {/*<p>Items available: tv, phone </p>*/}
                             <input  type="text"
+                                    name="inputString"
                                     autoFocus
                                     required
                                     placeholder="Enter item Name"
