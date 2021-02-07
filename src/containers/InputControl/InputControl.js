@@ -72,7 +72,7 @@ class InputControl extends Component {
     }
 
     render() {
-        const element = <FontAwesomeIcon icon={faSearch} />
+        const element = <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
         console.log('from input control')
         return (
             <React.Fragment>
@@ -103,6 +103,7 @@ class InputControl extends Component {
                                 onClick={e => this.onButtonClick(e)}
                             >{element}
                             </button>
+
 
                             {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                         </form>
