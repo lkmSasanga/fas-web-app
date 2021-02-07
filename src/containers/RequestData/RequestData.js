@@ -31,16 +31,22 @@ class RequestData extends Component {
             .then(response => {
                 // filtering
                 const outputArrayObject = response.data
+
                 const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === selectedItemName)
                 console.log(filteredArray)
+                if (filteredArray) {
+                    this.setState({loading: false, showChart: true})
+                    // const runChart = () => {return }
+                    this.setState({
+                        items: response.data,
+                        selectedItem: filteredArray
+                    })
+                    console.log(this.state.selectedItem.name)
+                } else {
+                    this.setState({loading: false, showChart: false})
+                    console.log('item not found')
+                }
 
-                this.setState({loading: false, showChart: true})
-                // const runChart = () => {return }
-                this.setState({
-                    items: response.data,
-                    selectedItem: filteredArray
-                })
-                console.log(this.state.selectedItem.name)
                 // console.log(this.state.featuresArray)
 
                 // this.defineData();
@@ -75,7 +81,7 @@ class RequestData extends Component {
 
         if (this.state.loading) {
             form = <Spinner/>
-        } else if(!this.state.loading){
+        } else if(!this.state.loading && this.state.showChart){
             form = (
                 <div>
                     <br/>
@@ -90,12 +96,12 @@ class RequestData extends Component {
                 {form}
                 <br/>
 
-                { this.state.showChart ?
-                    <div className="row">
-                        {/*<DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>*/}
+                { !this.state.showChart ?
+                    <div className="">
+                       <p>Sorry!.. This item currently unavailable!</p>
                     </div> : null
                 }
-                {/*<ChartDashboard charts={this.state.charts} chartData={this.state.selectedItem}/>*/}
+
             </React.Fragment>
         )
     }

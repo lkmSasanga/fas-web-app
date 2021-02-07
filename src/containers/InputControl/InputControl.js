@@ -110,7 +110,7 @@ class InputControl extends Component {
 
                         {/*{ this.onButtonClick }*/}
 
-                        { this.state.buttonClicked ?
+                        { this.state.buttonClicked  ?
                             <ItemNameOutput name={this.state.itemName}/> : null
                         }
 
