@@ -32,7 +32,7 @@ class RequestData extends Component {
                 // filtering
                 const outputArrayObject = response.data
 
-                const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === selectedItemName)
+                const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === selectedItemName.toLowerCase())
                 console.log(filteredArray)
                 if (filteredArray) {
                     this.setState({loading: false, showChart: true})

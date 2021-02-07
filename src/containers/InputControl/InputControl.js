@@ -11,6 +11,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 class InputControl extends Component {
     state = {
         itemName: '',
+        loweCaseItem: '',
         staticName: '',
         matchFound: false,
         buttonClicked: false
@@ -24,6 +25,7 @@ class InputControl extends Component {
         this.setState({
             itemName: e.target.value
         })
+
     }
 
     componentDidMount() {
@@ -65,7 +67,7 @@ class InputControl extends Component {
 
     resetState = () => {
         this.setState({
-            itemName: '',
+            itemName: ''.toLowerCase(),
             matchFound: false,
             buttonClicked: false
         })
