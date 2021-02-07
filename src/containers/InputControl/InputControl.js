@@ -42,7 +42,7 @@ class InputControl extends Component {
 
     runSentimentDataComponent = () => {
         const itemNameCheck = this.state.itemName
-        if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop'){
+        if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop' || itemNameCheck === 'HP i7'){
             // this.setState({staticName: itemNameCheck})
             // console.log('Static name : ' , this.state.staticName)
             return (
