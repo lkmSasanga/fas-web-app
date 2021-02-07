@@ -7,8 +7,9 @@
     text-transform: uppercase;
     text-decoration: none;
     background: #ffffff;
-    padding: 10px;
-    border: 2px solid #494949 !important;
+    padding: 10px 10px ;
+    /*border: 2px solid #494949 !important;*/
+    border-radius: 50%;
     display: inline-block;
     transition: all 0.4s ease 0s;
 }

@@ -4,6 +4,10 @@ import classes from './InputControl.module.css';
 import ItemNameOutput from '../RequestData/RequestData';
 import Layout from '../Layout/Layout';
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 class InputControl extends Component {
     state = {
         itemName: '',
@@ -34,7 +38,7 @@ class InputControl extends Component {
             buttonClicked: true,
         })
         this.runSentimentDataComponent()
-
+        // this.resetState()
     }
 
     runSentimentDataComponent = () => {
@@ -59,8 +63,16 @@ class InputControl extends Component {
         }
     }
 
+    resetState = () => {
+        this.setState({
+            itemName: '',
+            matchFound: false,
+            buttonClicked: false
+        })
+    }
 
     render() {
+        const element = <FontAwesomeIcon icon={faSearch} />
         console.log('from input control')
         return (
             <React.Fragment>
@@ -89,8 +101,9 @@ class InputControl extends Component {
                             <button
                                 className={classes.Button}
                                 onClick={e => this.onButtonClick(e)}
-                            >Search
+                            >{element}
                             </button>
+
                             {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                         </form>
                         {/*<p>{this.state.itemName}</p>*/}
@@ -102,8 +115,6 @@ class InputControl extends Component {
                         { this.state.buttonClicked  ?
                             <ItemNameOutput name={this.state.itemName}/> : null
                         }
-
-
                     </div>
                 </Layout>
             </React.Fragment>
