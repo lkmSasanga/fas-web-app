@@ -55,7 +55,6 @@ class RequestData extends Component {
         // this.copyDataSeries();
     }
 
-
     extractFeatures = () => {
         // if (this.state.loading) {
             for (let feature in this.props.itemDetails.features) {
@@ -94,8 +93,6 @@ class RequestData extends Component {
                 { this.state.showChart ?
                     <div className="row">
                         {/*<DonetChart className="col-md-6" itemDetails={this.state.selectedItem}/>*/}
-
-
                     </div> : null
                 }
                 {/*<ChartDashboard charts={this.state.charts} chartData={this.state.selectedItem}/>*/}

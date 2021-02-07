@@ -9,7 +9,7 @@ class InputControl extends Component {
         itemName: '',
         staticName: '',
         matchFound: false,
-        clicked: false
+        buttonClicked: false
     }
 
     onChangeItemName = (e) =>{
@@ -27,6 +27,7 @@ class InputControl extends Component {
     }
     onButtonClick = (e) => {
         console.log('button click')
+        this.setState({ buttonClicked: true })
         if (this.state.itemName) {
             return (
                 <div>
@@ -96,14 +97,24 @@ class InputControl extends Component {
                                     onClick={this.onClickHandler}
                             />
 
-                            <button className={classes.Button} onClick={e => this.onButtonClick(e)}>Search</button>
+                            <button
+                                className={classes.Button}
+                                onClick={e => this.onButtonClick(e)}
+                            >Search
+                            </button>
                             {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                         </form>
                         {/*<p>{this.state.itemName}</p>*/}
                         {/*{  this.runSentimentDataComponent()}*/}
                         {/*{ this.runSentimentDataComponent}*/}
 
-                        { this.onButtonClick() }
+                        {/*{ this.onButtonClick }*/}
+
+                        { this.state.buttonClicked ?
+                            <ItemNameOutput name={this.state.itemName}/> : null
+                        }
+
+
                     </div>
                 </Layout>
             </React.Fragment>
@@ -112,3 +123,4 @@ class InputControl extends Component {
 };
 
 export default InputControl;
+
