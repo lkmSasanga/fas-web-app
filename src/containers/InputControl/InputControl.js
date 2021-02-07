@@ -19,40 +19,23 @@ class InputControl extends Component {
         })
     }
 
-    // onSubmit = (e) => {
-    //     e.preventDefault();
-    //
-    //     console.log('on submit : ',this.state)
-    //
-    //     const data = this.state
-    //     console.log("Final data is : ",data)
-    //     return (<p>Item name is: {this.state.itemName}</p>)
-    // }
-
     componentDidMount() {
-        // this.setState({
-        //     itemName: ''
-        // })
-        // return ( <ItemNameOutput name={this.state.itemName}/>)
     }
 
     onClickHandler = () => {
         this.setState({clicked: true})
     }
-
-    runSentimentDataComponent = () => {
-        const itemNameCheck = this.state.itemName
-        if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop' || itemNameCheck === 'HP i7'){
-            // this.setState({staticName: itemNameCheck})
-            // console.log('Static name : ' , this.state.staticName)
+    onButtonClick = (e) => {
+        console.log('button click')
+        if (this.state.itemName) {
             return (
                 <div>
                     {/*{this.setState({matchFound: true})}*/}
                     <ItemNameOutput name={this.state.itemName}/>
                 </div>
             )
-        } else {
-
+        }
+        else {
             return (
                 <>
                     {this.state.clicked ?
@@ -62,9 +45,31 @@ class InputControl extends Component {
 
             )
         }
-
     }
 
+    runSentimentDataComponent = () => {
+        const itemNameCheck = this.state.itemName
+        // if(itemNameCheck === 'tv' || itemNameCheck === 'phone' || itemNameCheck === 'laptop' || itemNameCheck === 'HP i7'){
+
+            // return (
+            //     <div>
+            //         {/*{this.setState({matchFound: true})}*/}
+            //         <ItemNameOutput name={this.state.itemName}/>
+            //     </div>
+            // )
+        // }
+        // else {
+        //     return (
+        //         <>
+        //             {this.state.clicked ?
+        //                 <p className={classes.InputValidation}>Please enter valid item name</p> : null
+        //             }
+        //         </>
+        //
+        //     )
+        // }
+
+    }
 
     render() {
         console.log('from input control')
@@ -77,7 +82,6 @@ class InputControl extends Component {
                             <h2  className={classes.Heading}>Search Anything</h2>
                             <h3 className={classes.SubHeading}>We Read For You</h3>
                         </div>
-                        {/*}*/}
 
                         <form onSubmit={this.onChangeItemName}>
                             {/*<p>Items available: tv, phone </p>*/}
@@ -92,12 +96,14 @@ class InputControl extends Component {
                                     onClick={this.onClickHandler}
                             />
 
-                            {/*<button className={classes.Button}>Search</button>*/}
+                            <button className={classes.Button} onClick={e => this.onButtonClick(e)}>Search</button>
                             {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                         </form>
                         {/*<p>{this.state.itemName}</p>*/}
-                        {  this.runSentimentDataComponent()}
+                        {/*{  this.runSentimentDataComponent()}*/}
                         {/*{ this.runSentimentDataComponent}*/}
+
+                        { this.onButtonClick() }
                     </div>
                 </Layout>
             </React.Fragment>
