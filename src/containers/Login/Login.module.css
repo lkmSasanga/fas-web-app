@@ -5,14 +5,18 @@
 /*    box-sizing: border-box;*/
 /*    font-family: 'Poppins', sans-serif;*/
 /*}*/
-/*html,body{*/
-/*    display: grid;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    place-items: center;*/
-/*    background: #f2f2f2;*/
-/*    !* background: linear-gradient(-135deg, #c850c0, #4158d0); *!*/
-/*}*/
+.FormBody{
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    /*background: #f2f2f2;*/
+    margin-top: 150px;
+    /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+}
 ::selection{
     background: #4158d0;
     color: #fff;
@@ -136,4 +140,11 @@ form .signupLink a{
 form .passLink a:hover,
 form .signupLink a:hover{
     text-decoration: underline;
+}
+
+
+@media (max-width: 499px) {
+    .FormBody{
+        margin-top: 100px;
+    }
 }
