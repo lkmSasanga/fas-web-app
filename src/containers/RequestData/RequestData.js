@@ -10,35 +10,38 @@ class RequestData extends Component {
         state = {
             name: '',
             items: [],
-            selectedItem: {},
+            selectedItem: '',
             loading: false,
-            showChart: true,
+            showChart: false,
             featuresArray: [],
+            itemNotFound: false
         };
 
     componentDidMount() {
+        console.log('....request data mounted...')
         this.setState({loading: true})
-
+        console.log('...from request data.....', this.props.name)
         // url which is node output the data
-        const selectedItemName = this.props.name
+        // const selectedItemName = this.props.name
+        this.setState({selectedItem: this.props.name})
 
         axios.get('https://malindu-fas.herokuapp.com/')
             .then(response => {
                 // filtering
                 const outputArrayObject = response.data
 
-                const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === selectedItemName.toLowerCase())
+                const filteredArray = outputArrayObject.find(nameOfItem => nameOfItem.item === this.state.selectedItem.toLowerCase())
                 console.log(filteredArray)
                 if (filteredArray) {
                     this.setState({loading: false, showChart: true})
                     // const runChart = () => {return }
                     this.setState({
                         items: response.data,
-                        selectedItem: filteredArray
+                        selectedItem: filteredArray,
                     })
                     console.log(this.state.selectedItem.name)
                 } else {
-                    this.setState({loading: false, showChart: false})
+                    this.setState({loading: false, showChart: false, itemNotFound: true})
                     console.log('item not found')
                 }
             })
@@ -82,7 +85,7 @@ class RequestData extends Component {
                 {form}
                 <br/>
 
-                { !this.state.showChart ?
+                { this.state.itemNotFound ?
                     <div className="">
                        <p>Sorry!.. This item currently unavailable!</p>
                     </div> : null

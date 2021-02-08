@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect } from "react";
 import classes from './InputControl.module.css';
 
 import ItemNameOutput from '../RequestData/RequestData';
@@ -14,38 +14,50 @@ class InputControl extends Component {
         loweCaseItem: '',
         staticName: '',
         matchFound: false,
-        buttonClicked: false
+        buttonClicked: false,
+        requestDataMounted: false
     }
 
     onChangeItemName = (e) =>{
-        e.preventDefault()
-        // if (!e.target.value) {
-        //     this.setState({itemName: ''})
-        // }
+        // e.preventDefault()
         this.setState({
             itemName: e.target.value
         })
-
     }
 
-    componentDidMount() {
-    }
+    // componentShouldUpdate = (nextProps, nextState, nextContext) => {
+    //     return nextProps.itemName !== this.state.itemName
+    // }
+
+    // componentDidUpdate(prevProps, prevState,snapshot){
+    //     if (this.state.buttonClicked && (prevState.itemName !== this.props.itemName) ){
+    //         this.setState({itemName: ''})
+    //     }
+    // }
 
     onClickHandler = () => {
         this.setState({clicked: true})
     }
     onButtonClick = (e) => {
+        e.preventDefault()
+
         console.log('button click')
         this.setState({
             buttonClicked: true,
+            // requestDataMounted: true
         })
         this.runSentimentDataComponent()
+        // this.setState({itemName: ''})
         // this.resetState()
+        console.log('on button click...', this.state.itemName)
+        this.setState({buttonClicked: false})
     }
 
     runSentimentDataComponent = () => {
         // const itemNameCheck = this.state.itemName
         if (this.state.itemName) {
+            // this.setState({buttonClicked: false})
+
             return (
                 <div>
                     {/*{this.setState({matchFound: true})}*/}
@@ -63,6 +75,7 @@ class InputControl extends Component {
 
             )
         }
+
     }
 
     resetState = () => {
@@ -74,13 +87,16 @@ class InputControl extends Component {
     }
 
     render() {
+        // if (this.state.requestDataMounted) {
+        //     this.setState({bu})
+        // }
+        console.log('itemname.......', this.state.itemName)
         const element = <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
         console.log('from input control')
         return (
             <React.Fragment>
                 <Layout>
                     <div className={classes.Content}>
-                        {/*{!this.state.itemName ?*/}
                         <div>
                             <h2  className={classes.Heading}>Search Anything</h2>
                             <h3 className={classes.SubHeading}>We Read For You</h3>
@@ -93,6 +109,7 @@ class InputControl extends Component {
                                     autoFocus
                                     required
                                     placeholder="Enter item Name"
+                                    autoComplete="off"
                                 // name='itemName'
                                     className={classes.TextInput}
                                 // defaultValue={this.state.itemName}
@@ -106,20 +123,14 @@ class InputControl extends Component {
                             >{element}
                             </button>
 
-
-                            {/*{this.state.clicked ? <p>Clcdfhg</p> : null}*/}
                         </form>
-                        {/*<p>{this.state.itemName}</p>*/}
-                        {/*{  this.runSentimentDataComponent()}*/}
-                        {/*{ this.runSentimentDataComponent}*/}
 
-                        {/*{ this.onButtonClick }*/}
-
-                        { this.state.buttonClicked  ?
-                            <ItemNameOutput name={this.state.itemName}/> : null
-                        }
+                        {/*{ this.state.requestDataMounted  ?*/}
+                        {/*    <ItemNameOutput name={this.state.itemName}/> : null*/}
+                        {/*}*/}
+                        {this.runSentimentDataComponent()}
                     </div>
-                </Layout>
+                </Layout>+
             </React.Fragment>
         )
     }
