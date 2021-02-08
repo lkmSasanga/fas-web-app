@@ -10,7 +10,7 @@ import SignUp from "./containers/Login/SignUp/Signup";
 class App extends Component{
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter basename="/">
                 <Route>
                     <div className="App">
                         {/*<Layout>*/}
