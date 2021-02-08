@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
-// import ChartDashboard from "../../components/Charts/ChartDashboard/ChartDashboard";
 import DonetChart from '../../components/Charts/DonetChart/DonetChart';
 import Cards from '../../components/Charts/Cards/Cards';
-
-// import Highcharts from 'highcharts'
-// import HighchartsReact from 'highcharts-react-official'
 
 class RequestData extends Component {
 
@@ -24,7 +20,6 @@ class RequestData extends Component {
         this.setState({loading: true})
 
         // url which is node output the data
-
         const selectedItemName = this.props.name
 
         axios.get('https://malindu-fas.herokuapp.com/')
@@ -46,19 +41,10 @@ class RequestData extends Component {
                     this.setState({loading: false, showChart: false})
                     console.log('item not found')
                 }
-
-                // console.log(this.state.featuresArray)
-
-                // this.defineData();
             })
-
             .catch((error) => {
                 console.log(error);
             })
-
-        // from charts
-        // DataProcessing();
-        // this.copyDataSeries();
     }
 
     extractFeatures = () => {
@@ -70,8 +56,8 @@ class RequestData extends Component {
                     neg: this.state.selectedItem.features[feature].negative
                 })
             }
-            console.log('fetures array ', this.state.selectedItem.features[0])
-            console.log('fetures ....... ', this.state.featuresArray)
+            // console.log('fetures array ', this.state.selectedItem.features[0])
+            // console.log('fetures ....... ', this.state.featuresArray)
 
         // }
     }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import classes from './DonetChart.module.css';
 
-import ProgressBar from '../../ProgreessBars/ProgressBar/ProgressBar'
+// import ProgressBar from '../../ProgreessBars/ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import ProgressBars from "../../ProgreessBars/ProgressBars";

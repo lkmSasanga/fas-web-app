@@ -4,8 +4,8 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import './App.css';
 // import Layout from './containers/Layout/Layout';
 import InputControl from './containers/InputControl/InputControl';
-import Login from "./containers/Login/Login";
-import SignUp from "./containers/Login/SignUp/Signup";
+// import Login from "./containers/Login/Login";
+// import SignUp from "./containers/Login/SignUp/Signup";
 
 class App extends Component{
     render() {
