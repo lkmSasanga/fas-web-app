@@ -6,14 +6,14 @@
     /*color: #494949 !important;*/
     /*text-transform: uppercase;*/
     /*text-decoration: none;*/
-    background: #11de57;
+    /*background: #11de57;*/
     padding: 10px 10px ;
     /*border: 2px solid #494949 !important;*/
     border-radius: 100%;
     border: none;
     margin-left: 10px;
     display: inline-block;
-    color: #ffffff;
+    color: #2d2d2d;
     /*transition: all 0.4s ease 0s;*/
 }
 .Button:hover {
