@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import Classes from './Login.module.css';
 import Signup from "./SignUp/Signup";
@@ -40,33 +40,33 @@ class Login extends Component {
         console.log('clicked')
         this.setState({ clicked: true })
 
-        fetch('http://localhost:5000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password,
-            }),
-        }).then(res => res.json())
-            .then(json => {
-                console.log('json', json);
-                if (json.success) {
-                    this.setState({
-                        // signUpError: json.message,
-                        // isLoading: false,
-                        email: '',
-                        password: '',
-                    });
-                }
-                // else {
-                //     this.setState({
-                //         signUpError: json.message,
-                //         isLoading: false,
-                //     });
-                // }
-            });
+        // fetch('http://localhost:5000/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         email: this.state.email,
+        //         password: this.state.password,
+        //     }),
+        // }).then(res => res.json())
+        //     .then(json => {
+        //         console.log('json', json);
+        //         if (json.success) {
+        //             this.setState({
+        //                 // signUpError: json.message,
+        //                 // isLoading: false,
+        //                 email: '',
+        //                 password: '',
+        //             });
+        //         }
+        //         // else {
+        //         //     this.setState({
+        //         //         signUpError: json.message,
+        //         //         isLoading: false,
+        //         //     });
+        //         // }
+        //     });
 
 
 
@@ -101,7 +101,7 @@ class Login extends Component {
                                     <label htmlFor="remember-me" className={Classes.RememberMe}>Remember me</label>
                                 </div>
                                 <div className={Classes.passLink}>
-                                    <a href="#">Forgot password?</a></div>
+                                    <a href="/">Forgot password?</a></div>
                             </div>
 
                             {/*<Link to={'/search'}>*/}
