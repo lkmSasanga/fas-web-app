@@ -1,4 +1,4 @@
-import React, {Component, useEffect } from "react";
+import React, {Component } from "react";
 import classes from './InputControl.module.css';
 
 import ItemNameOutput from '../RequestData/RequestData';
@@ -15,6 +15,7 @@ class InputControl extends Component {
         staticName: '',
         matchFound: false,
         buttonClicked: false,
+        inputClicked: false,
         requestDataMounted: false
     }
 
@@ -25,56 +26,50 @@ class InputControl extends Component {
         })
     }
 
-    // componentShouldUpdate = (nextProps, nextState, nextContext) => {
-    //     return nextProps.itemName !== this.state.itemName
-    // }
-
-    // componentDidUpdate(prevProps, prevState,snapshot){
-    //     if (this.state.buttonClicked && (prevState.itemName !== this.props.itemName) ){
-    //         this.setState({itemName: ''})
-    //     }
-    // }
-
     onClickHandler = () => {
-        this.setState({clicked: true})
+        this.setState({inputClicked: true})
     }
     onButtonClick = (e) => {
         e.preventDefault()
 
         console.log('button click')
         this.setState({
+            // buttonClicked: !this.state.buttonClicked,
             buttonClicked: true,
-            // requestDataMounted: true
         })
         this.runSentimentDataComponent()
         // this.setState({itemName: ''})
         // this.resetState()
         console.log('on button click...', this.state.itemName)
-        this.setState({buttonClicked: false})
+        // this.setState({buttonClicked: false})
     }
+    // componentWillUnmount() {
+    //     this.setState({buttonClicked: false})
+    // }
 
     runSentimentDataComponent = () => {
         // const itemNameCheck = this.state.itemName
-        if (this.state.itemName) {
-            // this.setState({buttonClicked: false})
+        // if (this.state.itemName) {
+        //     this.setState({buttonClicked: false})
 
             return (
                 <div>
                     {/*{this.setState({matchFound: true})}*/}
                     <ItemNameOutput name={this.state.itemName}/>
+                    {/*{this.setState({requestDataMounted: true})}*/}
                 </div>
             )
-        }
-        else {
-            return (
-                <>
-                    {this.state.clicked ?
-                        <p className={classes.InputValidation}>Please enter valid item name</p> : null
-                    }
-                </>
-
-            )
-        }
+        // }
+        // else {
+        //     return (
+        //         <>
+        //             {this.state.inputClicked ?
+        //                 <p className={classes.InputValidation}>Please enter valid item name</p> : null
+        //             }
+        //         </>
+        //
+        //     )
+        // }
 
     }
 
@@ -88,7 +83,7 @@ class InputControl extends Component {
 
     render() {
         // if (this.state.requestDataMounted) {
-        //     this.setState({bu})
+        //     console.log('...request data mounted...')
         // }
         console.log('itemname.......', this.state.itemName)
         const element = <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
@@ -125,12 +120,16 @@ class InputControl extends Component {
 
                         </form>
 
-                        {/*{ this.state.requestDataMounted  ?*/}
-                        {/*    <ItemNameOutput name={this.state.itemName}/> : null*/}
-                        {/*}*/}
-                        {this.runSentimentDataComponent()}
+                        {this.state.buttonClicked ?
+
+                            this.runSentimentDataComponent()
+                            // this.setState({requestDataMounted: true})
+                            : null
+                        }
+
+                        {/*{this.runSentimentDataComponent()}*/}
                     </div>
-                </Layout>+
+                </Layout>
             </React.Fragment>
         )
     }
