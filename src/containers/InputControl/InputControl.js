@@ -24,6 +24,8 @@ class InputControl extends Component {
         this.setState({
             itemName: e.target.value
         })
+        this.runSentimentDataComponent()
+
     }
 
     onClickHandler = () => {
@@ -33,13 +35,15 @@ class InputControl extends Component {
         e.preventDefault()
 
         console.log('button click')
-        this.setState({
-            // buttonClicked: !this.state.buttonClicked,
-            buttonClicked: true,
-        })
-        this.runSentimentDataComponent()
-        // this.setState({itemName: ''})
-        // this.resetState()
+        // if (!this.state.buttonClicked) {
+            this.setState({
+                buttonClicked: !this.state.buttonClicked,
+                // buttonClicked: true,
+            })
+        // }
+
+        // this.runSentimentDataComponent()
+
         console.log('on button click...', this.state.itemName)
         // this.setState({buttonClicked: false})
     }
@@ -121,12 +125,7 @@ class InputControl extends Component {
 
                         </form>
 
-                        {this.state.buttonClicked ?
-
-                            this.runSentimentDataComponent()
-                            // this.setState({requestDataMounted: true})
-                            : null
-                        }
+                        {this.state.buttonClicked ? this.runSentimentDataComponent() : null}
 
                         {/*{this.runSentimentDataComponent()}*/}
                     </div>
