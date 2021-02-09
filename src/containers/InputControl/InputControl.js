@@ -73,15 +73,16 @@ class InputControl extends Component {
 
     }
 
-    resetState = () => {
-        this.setState({
-            itemName: ''.toLowerCase(),
-            matchFound: false,
-            buttonClicked: false
-        })
-    }
+    // resetState = () => {
+    //     this.setState({
+    //         itemName: ''.toLowerCase(),
+    //         matchFound: false,
+    //         buttonClicked: false
+    //     })
+    // }
 
     render() {
+        // this.setState({buttonClicked: false})
         // if (this.state.requestDataMounted) {
         //     console.log('...request data mounted...')
         // }
