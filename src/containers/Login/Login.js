@@ -8,6 +8,7 @@ import InputControl from "../InputControl/InputControl";
 class Login extends Component {
     state = {
         clicked: false,
+        username: '',
         email: '',
         password: '',
         signUpError: '',
@@ -17,6 +18,12 @@ class Login extends Component {
         loadSignup: false,
         submitButtonName: 'Login'
     }
+
+    onChangeUsername = (e) => {
+        e.preventDefault()
+        this.setState({username: e.target.value})
+    }
+
     onChangeEmail = (e) => {
         e.preventDefault()
         this.setState({email: e.target.value})
@@ -25,17 +32,7 @@ class Login extends Component {
         e.preventDefault()
         this.setState({password: e.target.value})
     }
-    // onFormSubmit = (e) => {
-    //     // e.preventDefault()
-    //     const data = new FormData(e.target)
-    //     fetch('http://localhost:5000/api/login', {
-    //         method: 'POST',
-    //         body: {
-    //             email: this.state.email,
-    //             password: this.state.password
-    //         }
-    //     }).then(result => console.log('form submit successful'))
-    // }
+
 
     SignUpClickHandler = () => {
         this.setState({loadSignup: true, submitButtonName: 'Signup'})
@@ -46,39 +43,81 @@ class Login extends Component {
         console.log('clicked')
         this.setState({ clicked: true, isLoading: true })
 
-        fetch('https://malindu-fas.herokuapp.com/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
+        if (!this.state.loadSignup){
+            console.log('loadSignup...', this.state.loadSignup)
 
-            },
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password,
-            }),
-        }).then(res => res.json())
-            .then(json => {
-                console.log('json', json);
-                if (json.success) {
-                    this.setState({
-                        // signUpError: json.message,
-                        // isLoading: false,
-                        // email: '',
-                        // password: '',
-                        isLoading: false,
-                        signUpError: '',
-                        errorOccurs: false,
-                        loginSuccess: true
-                    });
-                }
-                else {
-                    this.setState({
-                        signUpError: json.message,
-                        isLoading: false,
-                        errorOccurs: true
-                    });
-                }
-            });
+            fetch('https://malindu-fas.herokuapp.com/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+
+                },
+                body: JSON.stringify({
+                    email: this.state.email,
+                    password: this.state.password,
+                }),
+            }).then(res => res.json())
+                .then(json => {
+                    console.log('json', json);
+                    if (json.success) {
+                        this.setState({
+                            // signUpError: json.message,
+                            // isLoading: false,
+                            // email: '',
+                            // password: '',
+                            isLoading: false,
+                            signUpError: '',
+                            errorOccurs: false,
+                            loginSuccess: true
+                        });
+                    }
+                    else {
+                        this.setState({
+                            signUpError: json.message,
+                            isLoading: false,
+                            errorOccurs: true
+                        });
+                    }
+                });
+
+        } else if (this.state.loadSignup) {
+            console.log('loadSignup...', this.state.loadSignup)
+            fetch('https://malindu-fas.herokuapp.com/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+
+                },
+                body: JSON.stringify({
+                    username: this.state.username,
+                    email: this.state.email,
+                    password: this.state.password,
+                }),
+            }).then(res => res.json())
+                .then(json => {
+                    console.log('json', json);
+                    if (json.success) {
+                        this.setState({
+                            // signUpError: json.message,
+                            // isLoading: false,
+                            // email: '',
+                            // password: '',
+                            isLoading: false,
+                            signUpError: '',
+                            errorOccurs: false,
+                            loginSuccess: true
+                        });
+                    }
+                    else {
+                        this.setState({
+                            signUpError: json.message,
+                            isLoading: false,
+                            errorOccurs: true
+                        });
+                    }
+                });
+        }
+
 
         if (this.state.loginSuccess) {
             return <Link to="/search" replace />
@@ -98,6 +137,7 @@ class Login extends Component {
                             Welcome
                         </div>
                         <form action="#" onSubmit={this.onFormSubmit}>
+
                             {!this.state.loadSignup ?
                                 <div className={Classes.field}>
                                     <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
