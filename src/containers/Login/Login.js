@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Classes from './Login.module.css';
 import Signup from "./SignUp/Signup";
@@ -13,7 +13,8 @@ class Login extends Component {
         signUpError: '',
         isLoading: false,
         errorOccurs: false,
-        loginSuccess: false
+        loginSuccess: false,
+        loadSignup: false
     }
     onChangeEmail = (e) => {
         e.preventDefault()
@@ -36,6 +37,7 @@ class Login extends Component {
     // }
 
     SignUpClickHandler = () => {
+        this.setState({loadSignup: true})
         return <Signup/>
     }
 
@@ -78,16 +80,15 @@ class Login extends Component {
                 }
             });
 
-
+        if (this.state.loginSuccess) {
+            return <Link to="/search" replace />
+        }
 
         // this.props.history.push('/search');
         // return <Signup/>
     }
 
     render() {
-        console.log(this.state.email)
-        console.log(this.state.password)
-
         return (
             <React.Fragment>
                 { !this.state.loginSuccess ?
@@ -118,10 +119,12 @@ class Login extends Component {
                             <div className={Classes.field}>
                                 <input type="submit" value="Login" onClick={e => this.onClickHandler(e)}/>
                             </div>
+
                             {/*</Link>*/}
 
                             <div className={Classes.signupLink}>
-                                Not a member? <a href="/signup" onClick={this.SignUpClickHandler}>Signup now</a></div>
+                                Not a member? <a href="/" onClick={this.SignUpClickHandler}>Signup now</a>
+                            </div>
                         </form>
                         {this.state.isLoading ? <p>Loading...</p>: null}
                         {this.state.errorOccurs ? <p>Login Failed</p>: null}
@@ -130,9 +133,11 @@ class Login extends Component {
                         {this.state.signUpError ?
                             console.log('login error'): null
                         }
-                        {this.onSubmitHandler}
+                        {/*{this.onSubmitHandler}*/}
                     </div>
-                </div> : <InputControl/>}
+                </div>
+                    : <InputControl/>
+                }
 
             </React.Fragment>
 
