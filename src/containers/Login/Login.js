@@ -140,10 +140,16 @@ class Login extends Component {
                         <form action="#" onSubmit={this.onFormSubmit}>
 
                             {!this.state.loadSignup ?
-                                <div className={Classes.field}>
-                                    <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
-                                    <label>Email Address</label>
-                                </div>
+                                <React.Fragment>
+                                    <div className={Classes.field}>
+                                        <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                        <label>Email Address</label>
+                                    </div>
+                                    <div className={Classes.field}>
+                                        <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                        <label>Password</label>
+                                    </div>
+                                </React.Fragment>
                                 :
                                 <React.Fragment>
                                     <div className={Classes.field}>
@@ -154,14 +160,15 @@ class Login extends Component {
                                         <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
                                         <label>Email Address</label>
                                     </div>
+                                    <div className={Classes.field}>
+                                        <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                        <label>Password</label>
+                                    </div>
                                 </React.Fragment>
 
                             }
 
-                            <div className={Classes.field}>
-                                <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
-                                <label>Password</label>
-                            </div>
+
                             <div className={Classes.content}>
                                 <div className={Classes.checkbox}>
                                     <input type="checkbox" id="remember-me"/>
