@@ -61,10 +61,8 @@ class Login extends Component {
                     console.log('json', json);
                     if (json.success) {
                         this.setState({
-                            // signUpError: json.message,
-                            // isLoading: false,
-                            // email: '',
-                            // password: '',
+                            email: '',
+                            password: '',
                             isLoading: false,
                             signUpError: '',
                             errorOccurs: false,
@@ -74,6 +72,8 @@ class Login extends Component {
                     else {
                         this.setState({
                             signUpError: json.message,
+                            email: '',
+                            password: '',
                             isLoading: false,
                             errorOccurs: true
                         });
@@ -100,8 +100,9 @@ class Login extends Component {
                         this.setState({
                             // signUpError: json.message,
                             // isLoading: false,
-                            // email: '',
-                            // password: '',
+                            username: '',
+                            email: '',
+                            password: '',
                             isLoading: false,
                             signUpError: '',
                             errorOccurs: false,
@@ -173,12 +174,13 @@ class Login extends Component {
                             <div className={Classes.field}>
                                 <input type="submit" value={this.state.submitButtonName} onClick={e => this.onClickHandler(e)}/>
                             </div>
+                            {!this.state.loadSignup ?
+                                <div className={Classes.signupLink}>
+                                    Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
+                                </div> : null
+                            }
 
-                            {/*</Link>*/}
 
-                            <div className={Classes.signupLink}>
-                                Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
-                            </div>
                         </form>
                         {this.state.isLoading ? <p>Loading...</p>: null}
                         {this.state.errorOccurs ? <p>Login Failed</p>: null}
