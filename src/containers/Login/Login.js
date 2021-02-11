@@ -11,7 +11,8 @@ class Login extends Component {
         email: '',
         password: '',
         signUpError: '',
-        isLoading: false
+        isLoading: false,
+        errorOccurs: false
     }
     onChangeEmail = (e) => {
         e.preventDefault()
@@ -59,14 +60,18 @@ class Login extends Component {
                     this.setState({
                         // signUpError: json.message,
                         // isLoading: false,
-                        email: '',
-                        password: '',
+                        // email: '',
+                        // password: '',
+                        isLoading: false,
+                        signUpError: '',
+                        errorOccurs: false
                     });
                 }
                 else {
                     this.setState({
                         signUpError: json.message,
                         isLoading: false,
+                        errorOccurs: true
                     });
                 }
             });
@@ -117,6 +122,9 @@ class Login extends Component {
                                 Not a member? <a href="/signup" onClick={this.SignUpClickHandler}>Signup now</a></div>
                         </form>
                         {this.state.isLoading ? <p>Loading...</p>: null}
+                        {this.state.errorOccurs ? <p>Login Failed</p>: null}
+
+
                         {this.state.signUpError ?
                             console.log('login error'): null
                         }
