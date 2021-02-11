@@ -83,7 +83,7 @@ class Login extends Component {
 
         return (
             <React.Fragment>
-                { !this.state.clicked ?
+                {/*{ !this.state.clicked ?*/}
                 <div className={Classes.FormBody}>
                     <div className={Classes.wrapper}>
                         <div className={Classes.title}>
@@ -122,7 +122,7 @@ class Login extends Component {
                         }
                         {this.onSubmitHandler}
                     </div>
-                </div>  : <InputControl/>}
+                </div>
 
             </React.Fragment>
 
