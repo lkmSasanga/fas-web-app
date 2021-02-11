@@ -132,7 +132,7 @@ class Login extends Component {
                         }
                         {this.onSubmitHandler}
                     </div>
-                </div> : null}
+                </div> : <InputControl/>}
 
             </React.Fragment>
 
