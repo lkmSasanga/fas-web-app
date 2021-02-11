@@ -12,7 +12,8 @@ class Login extends Component {
         password: '',
         signUpError: '',
         isLoading: false,
-        errorOccurs: false
+        errorOccurs: false,
+        loginSuccess: false
     }
     onChangeEmail = (e) => {
         e.preventDefault()
@@ -64,7 +65,8 @@ class Login extends Component {
                         // password: '',
                         isLoading: false,
                         signUpError: '',
-                        errorOccurs: false
+                        errorOccurs: false,
+                        loginSuccess: true
                     });
                 }
                 else {
@@ -88,7 +90,7 @@ class Login extends Component {
 
         return (
             <React.Fragment>
-                {/*{ !this.state.clicked ?*/}
+                { !this.state.loginSuccess ?
                 <div className={Classes.FormBody}>
                     <div className={Classes.wrapper}>
                         <div className={Classes.title}>
@@ -130,7 +132,7 @@ class Login extends Component {
                         }
                         {this.onSubmitHandler}
                     </div>
-                </div>
+                </div> : null}
 
             </React.Fragment>
 
