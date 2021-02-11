@@ -9,7 +9,9 @@ class Login extends Component {
     state = {
         clicked: false,
         email: '',
-        password: ''
+        password: '',
+        signUpError: '',
+        isLoading: false
     }
     onChangeEmail = (e) => {
         e.preventDefault()
@@ -38,35 +40,36 @@ class Login extends Component {
     onClickHandler = (e) => {
         e.preventDefault()
         console.log('clicked')
-        this.setState({ clicked: true })
+        this.setState({ clicked: true, isLoading: true })
 
-        // fetch('http://localhost:5000/api/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //         email: this.state.email,
-        //         password: this.state.password,
-        //     }),
-        // }).then(res => res.json())
-        //     .then(json => {
-        //         console.log('json', json);
-        //         if (json.success) {
-        //             this.setState({
-        //                 // signUpError: json.message,
-        //                 // isLoading: false,
-        //                 email: '',
-        //                 password: '',
-        //             });
-        //         }
-        //         // else {
-        //         //     this.setState({
-        //         //         signUpError: json.message,
-        //         //         isLoading: false,
-        //         //     });
-        //         // }
-        //     });
+        fetch('https://malindu-fas.herokuapp.com/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password,
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                if (json.success) {
+                    this.setState({
+                        // signUpError: json.message,
+                        // isLoading: false,
+                        email: '',
+                        password: '',
+                    });
+                }
+                else {
+                    this.setState({
+                        signUpError: json.message,
+                        isLoading: false,
+                    });
+                }
+            });
 
 
 
@@ -113,6 +116,10 @@ class Login extends Component {
                             <div className={Classes.signupLink}>
                                 Not a member? <a href="/signup" onClick={this.SignUpClickHandler}>Signup now</a></div>
                         </form>
+                        {this.state.isLoading ? <p>Loading...</p>: null}
+                        {this.state.signUpError ?
+                            console.log('login error'): null
+                        }
                         {this.onSubmitHandler}
                     </div>
                 </div>  : <InputControl/>}
