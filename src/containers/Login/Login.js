@@ -98,10 +98,25 @@ class Login extends Component {
                             Welcome
                         </div>
                         <form action="#" onSubmit={this.onFormSubmit}>
-                            <div className={Classes.field}>
-                                <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
-                                <label>Email Address</label>
-                            </div>
+                            {!this.state.loadSignup ?
+                                <div className={Classes.field}>
+                                    <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                    <label>Email Address</label>
+                                </div>
+                                :
+                                <React.Fragment>
+                                    <div className={Classes.field}>
+                                        <input type="text" required name="username" onChange={e => this.onChangeUsername(e)}/>
+                                        <label>Username</label>
+                                    </div>
+                                    <div className={Classes.field}>
+                                        <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                        <label>Email Address</label>
+                                    </div>
+                                </React.Fragment>
+
+                            }
+
                             <div className={Classes.field}>
                                 <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
                                 <label>Password</label>
