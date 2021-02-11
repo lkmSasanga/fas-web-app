@@ -14,7 +14,8 @@ class Login extends Component {
         isLoading: false,
         errorOccurs: false,
         loginSuccess: false,
-        loadSignup: false
+        loadSignup: false,
+        submitButtonName: 'Login'
     }
     onChangeEmail = (e) => {
         e.preventDefault()
@@ -37,8 +38,7 @@ class Login extends Component {
     // }
 
     SignUpClickHandler = () => {
-        this.setState({loadSignup: true})
-        return <Signup/>
+        this.setState({loadSignup: true, submitButtonName: 'Signup'})
     }
 
     onClickHandler = (e) => {
@@ -115,15 +115,14 @@ class Login extends Component {
                                     <a href="/">Forgot password?</a></div>
                             </div>
 
-                            {/*<Link to={'/search'}>*/}
                             <div className={Classes.field}>
-                                <input type="submit" value="Login" onClick={e => this.onClickHandler(e)}/>
+                                <input type="submit" value={this.state.submitButtonName} onClick={e => this.onClickHandler(e)}/>
                             </div>
 
                             {/*</Link>*/}
 
                             <div className={Classes.signupLink}>
-                                Not a member? <a href="/" onClick={this.SignUpClickHandler}>Signup now</a>
+                                Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
                             </div>
                         </form>
                         {this.state.isLoading ? <p>Loading...</p>: null}
