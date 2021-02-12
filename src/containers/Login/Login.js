@@ -150,7 +150,8 @@ class Login extends Component {
                                         <label>Password</label>
                                     </div>
                                 </React.Fragment>
-                                :
+                                : null }
+                            {this.state.loadSignup ?
                                 <React.Fragment>
                                     <div className={Classes.field}>
                                         <input type="text" required name="username" onChange={e => this.onChangeUsername(e)}/>
@@ -164,8 +165,7 @@ class Login extends Component {
                                         <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
                                         <label>Password</label>
                                     </div>
-                                </React.Fragment>
-
+                                </React.Fragment> : null
                             }
 
 

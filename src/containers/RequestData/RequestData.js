@@ -25,7 +25,7 @@ class RequestData extends Component {
         // const selectedItemName = this.props.name
         this.setState({selectedItem: this.props.name})
 
-        axios.get('https://malindu-fas.herokuapp.com/')
+        axios.get('https://malindu-fas.herokuapp.com/sentiment')
             .then(response => {
                 // filtering
                 const outputArrayObject = response.data
