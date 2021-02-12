@@ -35,8 +35,9 @@
     color: #fff;
     user-select: none;
     border-radius: 15px 15px 0 0;
-    background: linear-gradient(-135deg, #48ec4b, #1dd281);
-    /*background: #1dd281;*/
+    /*background: linear-gradient(-135deg, #48ec4b, #1dd281);*/
+    background: linear-gradient(-135deg, #005e3e, #033d44);
+    /*background: #033d44;*/
 }
 .wrapper form{
     padding: 10px 30px 30px 30px;
@@ -123,7 +124,10 @@ form .field input[type="submit"]{
     font-weight: 500;
     cursor: pointer;
     /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-    background: linear-gradient(-135deg, #48ec4b, #1dd281);
+    /*background: linear-gradient(-135deg, #48ec4b, #1dd281);*/
+    /*background: #033d44;*/
+    background: linear-gradient(-135deg, #005e3e, #03343b);
+
 
 
     /*background: #02cb9d;*/
@@ -150,6 +154,11 @@ form .signupLink a:hover{
 
 @media (max-width: 499px) {
     .FormBody{
-        margin-top: 100px;
+        margin-top: 90px;
+        /*margin-left: 20px;*/
+        /*margin-right: 20px;*/
+        /*height: 50px;*/
+        /*width: 60%;*/
+        /*padding-left: 15px;*/
     }
 }

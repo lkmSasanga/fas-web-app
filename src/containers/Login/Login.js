@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 
 import Classes from './Login.module.css';
-import Signup from "./SignUp/Signup";
+// import Signup from "./SignUp/Signup";
 import InputControl from "../InputControl/InputControl";
 import ThreeDots from '../../components/UI/ThreeDots/ThreeDots';
 
@@ -151,7 +151,7 @@ class Login extends Component {
                                                 <label>Email Address</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                                <input type="password" required name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
                                                 <label>Password</label>
                                             </div>
                                         </React.Fragment>
@@ -159,7 +159,7 @@ class Login extends Component {
                                     {this.state.loadSignup ?
                                         <React.Fragment>
                                             <div className={Classes.field}>
-                                                <input type="text" required name="username" onChange={e => this.onChangeUsername(e)}/>
+                                                <input type="text" required name="username" autoComplete="on" onChange={e => this.onChangeUsername(e)}/>
                                                 <label>Username</label>
                                             </div>
                                             <div className={Classes.field}>
@@ -167,7 +167,7 @@ class Login extends Component {
                                                 <label>Email Address</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                                <input type="password" required name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
                                                 <label>Password</label>
                                             </div>
                                         </React.Fragment> : null
