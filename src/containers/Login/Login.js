@@ -36,13 +36,13 @@ class Login extends Component {
 
 
     SignUpClickHandler = () => {
-        this.setState({loadSignup: true, submitButtonName: 'Signup'})
+        this.setState({loadSignup: true, submitButtonName: 'Signup', errorOccurs: false})
     }
 
     onClickHandler = (e) => {
         e.preventDefault()
         console.log('clicked')
-        this.setState({ clicked: true, isLoading: true })
+        this.setState({ clicked: true, isLoading: true, errorOccurs: false })
 
         if (!this.state.loadSignup){
             console.log('loadSignup...', this.state.loadSignup)
@@ -113,6 +113,9 @@ class Login extends Component {
                     else {
                         this.setState({
                             signUpError: json.message,
+                            username: '',
+                            email: '',
+                            password: '',
                             isLoading: false,
                             errorOccurs: true
                         });
@@ -133,73 +136,74 @@ class Login extends Component {
         return (
             <React.Fragment>
                 { !this.state.loginSuccess ?
-                <div className={Classes.FormBody}>
-                    <div className={Classes.wrapper}>
-                        <div className={Classes.title}>
-                            Welcome
-                        </div>
-                        <form action="#" onSubmit={this.onFormSubmit}>
-
-                            {!this.state.loadSignup ?
-                                <React.Fragment>
-                                    <div className={Classes.field}>
-                                        <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
-                                        <label>Email Address</label>
-                                    </div>
-                                    <div className={Classes.field}>
-                                        <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
-                                        <label>Password</label>
-                                    </div>
-                                </React.Fragment>
-                                : null }
-                            {this.state.loadSignup ?
-                                <React.Fragment>
-                                    <div className={Classes.field}>
-                                        <input type="text" required name="username" onChange={e => this.onChangeUsername(e)}/>
-                                        <label>Username</label>
-                                    </div>
-                                    <div className={Classes.field}>
-                                        <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
-                                        <label>Email Address</label>
-                                    </div>
-                                    <div className={Classes.field}>
-                                        <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
-                                        <label>Password</label>
-                                    </div>
-                                </React.Fragment> : null
-                            }
-
-
-                            <div className={Classes.content}>
-                                <div className={Classes.checkbox}>
-                                    <input type="checkbox" id="remember-me"/>
-                                    <label htmlFor="remember-me" className={Classes.RememberMe}>Remember me</label>
+                    <>
+                        <div className={Classes.FormBody}>
+                            <div className={Classes.wrapper}>
+                                <div className={Classes.title}>
+                                    Welcome
                                 </div>
-                                <div className={Classes.passLink}>
-                                    <a href="/">Forgot password?</a></div>
+                                <form action="#" onSubmit={this.onFormSubmit}>
+
+                                    {!this.state.loadSignup ?
+                                        <React.Fragment>
+                                            <div className={Classes.field}>
+                                                <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                                <label>Email Address</label>
+                                            </div>
+                                            <div className={Classes.field}>
+                                                <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                                <label>Password</label>
+                                            </div>
+                                        </React.Fragment>
+                                        : null }
+                                    {this.state.loadSignup ?
+                                        <React.Fragment>
+                                            <div className={Classes.field}>
+                                                <input type="text" required name="username" onChange={e => this.onChangeUsername(e)}/>
+                                                <label>Username</label>
+                                            </div>
+                                            <div className={Classes.field}>
+                                                <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                                <label>Email Address</label>
+                                            </div>
+                                            <div className={Classes.field}>
+                                                <input type="password" required name="password" onChange={e => this.onChangePassword(e)}/>
+                                                <label>Password</label>
+                                            </div>
+                                        </React.Fragment> : null
+                                    }
+
+
+                                    <div className={Classes.content}>
+                                        <div className={Classes.checkbox}>
+                                            <input type="checkbox" id="remember-me"/>
+                                            <label htmlFor="remember-me" className={Classes.RememberMe}>Remember me</label>
+                                        </div>
+                                        <div className={Classes.passLink}>
+                                            <a href="/">Forgot password?</a></div>
+                                    </div>
+
+                                    <div className={Classes.field}>
+                                        <input type="submit" value={this.state.submitButtonName} onClick={e => this.onClickHandler(e)}/>
+                                    </div>
+                                    {!this.state.loadSignup ?
+                                        <div className={Classes.signupLink}>
+                                            Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
+                                        </div> : null
+                                    }
+
+                                </form>
+                                {this.state.errorOccurs ? <p>Login Failed</p>: null}
+
+
+                                {this.state.signUpError ?
+                                    console.log('login error'): null
+                                }
+                                {/*{this.onSubmitHandler}*/}
                             </div>
-
-                            <div className={Classes.field}>
-                                <input type="submit" value={this.state.submitButtonName} onClick={e => this.onClickHandler(e)}/>
-                            </div>
-                            {!this.state.loadSignup ?
-                                <div className={Classes.signupLink}>
-                                    Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
-                                </div> : null
-                            }
-
-
-                        </form>
+                        </div>
                         {this.state.isLoading ? <ThreeDots/>: null}
-                        {this.state.errorOccurs ? <p>Login Failed</p>: null}
-
-
-                        {this.state.signUpError ?
-                            console.log('login error'): null
-                        }
-                        {/*{this.onSubmitHandler}*/}
-                    </div>
-                </div>
+                    </>
                     : <InputControl/>
                 }
 
