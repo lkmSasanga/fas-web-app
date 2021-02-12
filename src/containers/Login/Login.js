@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Classes from './Login.module.css';
 import Signup from "./SignUp/Signup";
 import InputControl from "../InputControl/InputControl";
+import ThreeDots from '../../components/UI/ThreeDots/ThreeDots';
 
 class Login extends Component {
     state = {
@@ -189,7 +190,7 @@ class Login extends Component {
 
 
                         </form>
-                        {this.state.isLoading ? <p>Loading...</p>: null}
+                        {this.state.isLoading ? <ThreeDots/>: null}
                         {this.state.errorOccurs ? <p>Login Failed</p>: null}
 
 

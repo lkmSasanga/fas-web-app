@@ -35,8 +35,8 @@
     color: #fff;
     user-select: none;
     border-radius: 15px 15px 0 0;
-    /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-    background: #1dd281;
+    background: linear-gradient(-135deg, #48ec4b, #1dd281);
+    /*background: #1dd281;*/
 }
 .wrapper form{
     padding: 10px 30px 50px 30px;
@@ -123,7 +123,10 @@ form .field input[type="submit"]{
     font-weight: 500;
     cursor: pointer;
     /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-    background: #1dd281;
+    background: linear-gradient(-135deg, #48ec4b, #1dd281);
+
+
+    /*background: #02cb9d;*/
     transition: all 0.3s ease;
 }
 form .field input[type="submit"]:active{
