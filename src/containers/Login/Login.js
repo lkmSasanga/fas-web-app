@@ -173,7 +173,6 @@ class Login extends Component {
                                         </React.Fragment> : null
                                     }
 
-
                                     <div className={Classes.content}>
                                         <div className={Classes.checkbox}>
                                             <input type="checkbox" id="remember-me"/>
@@ -193,8 +192,9 @@ class Login extends Component {
                                     }
 
                                 </form>
-                                {this.state.errorOccurs ? <p>Login Failed</p>: null}
-
+                                {this.state.errorOccurs ?
+                                    <p style={{ color: "#c70303"}}>Login Failed</p>
+                                    : null}
 
                                 {this.state.signUpError ?
                                     console.log('login error'): null
