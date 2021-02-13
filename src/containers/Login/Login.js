@@ -120,6 +120,9 @@ class Login extends Component {
                         });
                     }
                     else {
+                        if(json.data === 'User validation failed: email: Please fill a valid email address') {
+                            this.setState({invalidEmail: true})
+                        }
                         this.setState({
                             signUpError: json.message,
                             // username: '',
@@ -191,8 +194,15 @@ class Login extends Component {
                                                 <label>Username</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="text" required="required" name="email" onChange={e => this.onChangeEmail(e)}/>
-                                                <label>Email Address</label>
+                                                <input
+                                                    type="text"
+                                                    required name="email"
+                                                    style={this.state.invalidEmail ?
+                                                        {borderColor: "red"}
+                                                        : null} onChange={e => this.onChangeEmail(e)}/>
+                                                {this.state.invalidEmail ?
+                                                    <label style={{color: "red"}}>Invalid Email Address</label>
+                                                    :<label>Email Address</label> }
                                             </div>
                                             <div className={Classes.field}>
                                                 <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
