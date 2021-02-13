@@ -82,8 +82,8 @@ class Login extends Component {
 
                         this.setState({
                             signUpError: json.message,
-                            email: '',
-                            password: '',
+                            // email: '',
+                            // password: '',
                             isLoading: false,
                             errorOccurs: true
                         });
@@ -122,9 +122,9 @@ class Login extends Component {
                     else {
                         this.setState({
                             signUpError: json.message,
-                            username: '',
-                            email: '',
-                            password: '',
+                            // username: '',
+                            // email: '',
+                            // password: '',
                             isLoading: false,
                             errorOccurs: true,
                             errMsg: json.data
