@@ -160,9 +160,11 @@ class Login extends Component {
                                                     type="text"
                                                     required name="email"
                                                     style={this.state.invalidEmail ?
-                                                        {borderColor: "red", boxShadow:  "15px 15px 27px #e1e1e3"}
+                                                        {borderColor: "red", boxShadow:  "5px 5px 5px #FF7F7F .6"}
                                                         : null} onChange={e => this.onChangeEmail(e)}/>
-                                                <label>Email Address</label>
+                                                {this.state.invalidEmail ?
+                                                    <label style={{color: "red"}}>Invalid Email Address</label>
+                                                    :<label>Invalid Email Address</label> }
                                             </div>
                                             <div className={Classes.field}>
                                                 <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
