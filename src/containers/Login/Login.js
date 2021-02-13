@@ -19,7 +19,8 @@ class Login extends Component {
         loadSignup: false,
         submitButtonName: 'Login',
         errMsg: '',
-        invalidEmail: false
+        invalidEmail: false,
+        invalidPassword: false
     }
 
     onChangeUsername = (e) => {
@@ -75,6 +76,8 @@ class Login extends Component {
                     else {
                         if(json.message === 'Invalid Email!') {
                             this.setState({invalidEmail: true})
+                        } else if(json.message === 'Invalid Password!') {
+                            this.setState({invalidPassword: true})
                         }
 
                         this.setState({
@@ -164,11 +167,20 @@ class Login extends Component {
                                                         : null} onChange={e => this.onChangeEmail(e)}/>
                                                 {this.state.invalidEmail ?
                                                     <label style={{color: "red"}}>Invalid Email Address</label>
-                                                    :<label>Invalid Email Address</label> }
+                                                    :<label>Email Address</label> }
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
-                                                <label>Password</label>
+                                                <input
+                                                    type="password"
+                                                    required="required"
+                                                    style={this.state.invalidPassword ? {borderColor: "red"} : null}
+                                                    name="password"
+                                                    autoComplete="on"
+                                                    onChange={e => this.onChangePassword(e)}/>
+                                                {this.state.invalidPassword ?
+                                                    <label style={{color: "red"}}>Invalid Password</label> :
+                                                    <label>Password</label>
+                                                }
                                             </div>
                                         </React.Fragment>
                                         : null }
