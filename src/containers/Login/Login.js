@@ -17,7 +17,9 @@ class Login extends Component {
         errorOccurs: false,
         loginSuccess: false,
         loadSignup: false,
-        submitButtonName: 'Login'
+        submitButtonName: 'Login',
+        errMsg: '',
+        invalidEmail: false
     }
 
     onChangeUsername = (e) => {
@@ -71,6 +73,10 @@ class Login extends Component {
                         });
                     }
                     else {
+                        if(json.message === 'Invalid Email!') {
+                            this.setState({invalidEmail: true})
+                        }
+
                         this.setState({
                             signUpError: json.message,
                             email: '',
@@ -107,7 +113,7 @@ class Login extends Component {
                             isLoading: false,
                             signUpError: '',
                             errorOccurs: false,
-                            loginSuccess: true
+                            loginSuccess: true,
                         });
                     }
                     else {
@@ -117,7 +123,9 @@ class Login extends Component {
                             email: '',
                             password: '',
                             isLoading: false,
-                            errorOccurs: true
+                            errorOccurs: true,
+                            errMsg: json.data
+
                         });
                     }
                 });
@@ -133,12 +141,13 @@ class Login extends Component {
     }
 
     render() {
+        console.log(this.state.errMsg)
         return (
             <React.Fragment>
                 { !this.state.loginSuccess ?
                     <>
                         <div className={Classes.FormBody}>
-                            <div className={Classes.wrapper}>
+                            <div className={Classes.wrapper }>
                                 <div className={Classes.title}>
                                     Welcome
                                 </div>
@@ -147,11 +156,16 @@ class Login extends Component {
                                     {!this.state.loadSignup ?
                                         <React.Fragment>
                                             <div className={Classes.field}>
-                                                <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                                <input
+                                                    type="text"
+                                                    required name="email"
+                                                    style={this.state.invalidEmail ?
+                                                        {borderColor: "red", boxShadow:  "15px 15px 27px #e1e1e3"}
+                                                        : null} onChange={e => this.onChangeEmail(e)}/>
                                                 <label>Email Address</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="password" required name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
+                                                <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
                                                 <label>Password</label>
                                             </div>
                                         </React.Fragment>
@@ -159,15 +173,15 @@ class Login extends Component {
                                     {this.state.loadSignup ?
                                         <React.Fragment>
                                             <div className={Classes.field}>
-                                                <input type="text" required name="username" autoComplete="on" onChange={e => this.onChangeUsername(e)}/>
+                                                <input type="text" required="required" name="username" autoComplete="on" onChange={e => this.onChangeUsername(e)}/>
                                                 <label>Username</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="text" required name="email" onChange={e => this.onChangeEmail(e)}/>
+                                                <input type="text" required="required" name="email" onChange={e => this.onChangeEmail(e)}/>
                                                 <label>Email Address</label>
                                             </div>
                                             <div className={Classes.field}>
-                                                <input type="password" required name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
+                                                <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
                                                 <label>Password</label>
                                             </div>
                                         </React.Fragment> : null
