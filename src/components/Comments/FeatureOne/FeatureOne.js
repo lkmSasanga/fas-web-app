@@ -13,8 +13,8 @@ class FeatureOne extends Component {
                             <div>
                                 <p className={classes.CommentsType}>Positive Feedbacks</p>
                                 <div className={classes.Comments}>
-                                    <p style={{marginBottom: "3px"}}>{this.props.comments.featureOne.negComments[0]}</p>
-                                    <p>{this.props.comments.featureOne.negComments[1]}</p>
+                                    <p style={{marginBottom: "3px"}}>{this.props.comments.featureOne.posComments[0]}</p>
+                                    <p>{this.props.comments.featureOne.posComments[1]}</p>
                                 </div>
                             </div>
                             <div>

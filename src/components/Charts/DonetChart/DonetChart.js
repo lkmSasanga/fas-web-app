@@ -7,6 +7,7 @@ import HighchartsReact from 'highcharts-react-official'
 import ProgressBars from "../../ProgreessBars/ProgressBars";
 // import NegComments from '../../Comments/NegComments/NegComments'
 import FeatureOne from '../../Comments/FeatureOne/FeatureOne'
+import FeatureTwo from '../../Comments/FeatureTwo/FeatureTwo'
 
 class DonetChart extends Component{
     state = {
@@ -184,7 +185,8 @@ class DonetChart extends Component{
                         <FeatureOne comments={this.props.itemDetails.features}/>
                     </div>
                     <div className={classes.FeedbackCards}>
-                        <h1>Another Chart</h1>
+                        <FeatureTwo comments={this.props.itemDetails.features}/>
+
                     </div>
                     <div className={classes.FeedbackCards}>
                         <h1>Another Chart</h1>
