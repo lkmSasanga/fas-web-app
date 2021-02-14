@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import Classes from './Login.module.css';
 // import Signup from "./SignUp/Signup";
@@ -242,9 +242,9 @@ class Login extends Component {
                         </div>
                         {this.state.isLoading ? <ThreeDots/>: null}
                     </>
-                    : <InputControl/>
+                    :  <Redirect to="/search"/>
                 }
-
+                {/*<Link to="/search" replace><InputControl/></Link>*/}
             </React.Fragment>
 
 
