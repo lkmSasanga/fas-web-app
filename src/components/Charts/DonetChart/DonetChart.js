@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import classes from './DonetChart.module.css';
 
-// import ProgressBar from '../../ProgreessBars/ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import ProgressBars from "../../ProgreessBars/ProgressBars";
+// import BarChart from "../BarChart/BarChart";
 
 class DonetChart extends Component{
     state = {
@@ -30,12 +30,6 @@ class DonetChart extends Component{
     }
 
     componentDidMount() {
-        // this.runChart();
-        // let chartView = (<HighchartsReact
-        //     highcharts = { Highcharts }
-        //     options = { this.chartComponent }
-        // />)
-        // this.extractFeatureData();
         this.setState({dataRecieved: true})
         this.setState({features: this.props.itemDetails.features})
 
@@ -55,55 +49,12 @@ class DonetChart extends Component{
 
         console.log(this.state.features)
 
-
-
-        // this.setState({
-        //     featureOne: {
-        //         name: this.state.featuresArray[0].name,
-        //         pos: this.state.featuresArray[0].pos
-        //     },
-
-        // })
-        // console.log(this.state.featuresArray[0].name)
-        // console.log(this.state.featuresArray[0].pos)
     }
-
-    // componentWillUnmount() {
-    //     this.setState({dataRecieved: false})
-    // }
-
 
     render (props) {
 
-        // if (this.state.featuresArray) {
-        //     console.log('features array ', this.state.featuresArray[0].name)
-        //     console.log('features array ', this.state.featuresArray[0].pos)
-        //     console.log('features array ', this.state.featuresArray[0].neg)
-        // }
-
-        // let passiveIfSupported = false;
-        //
-        // try {
-        //     window.addEventListener("test", null,
-        //         Object.defineProperty(
-        //             {},
-        //             "passive",
-        //             {
-        //                 get: function() { passiveIfSupported = { passive: true }; }
-        //             }
-        //         )
-        //     );
-        // } catch(err) {}
-        //
-        // window.addEventListener('scroll', function(event) {
-        //     /* do something */
-        //     // can't use event.preventDefault();
-        //     // event.preventDefault()
-        // }, passiveIfSupported );
-
-
-        var pos = parseInt(this.props.itemDetails.positive)
-        var neg = parseInt(this.props.itemDetails.negative)
+        let pos = parseInt(this.props.itemDetails.positive)
+        let neg = parseInt(this.props.itemDetails.negative)
 
         const chartComponent = {
         chart: {
@@ -226,9 +177,16 @@ class DonetChart extends Component{
                     </div>
                     <ProgressBars features={this.props.itemDetails.features}/>
                 </div>
-                <div className={classes.Cards}>
-                    <h1>HEllo</h1>
-                </div>
+
+                {/*<div className={classes.ChartsRow}>*/}
+                    <div className={classes.Cards}>
+                        <p>hello</p>
+                    </div>
+                    {/*<div className={classes.Cards}>*/}
+                    {/*    <h1>Another Chart</h1>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
+
             </React.Fragment>
         )
     };

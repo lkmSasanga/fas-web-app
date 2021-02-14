@@ -28,6 +28,7 @@ class ProgressBars extends Component {
                         }</p>
                         <div className={classes.ProgressBar}>
                             <ProgressBar battery={this.props.features.featureOne.positive}/>
+                            <ProgressBar battery={this.props.features.featureOne.negative}/>
                         </div>
                     </div>
 
@@ -38,6 +39,7 @@ class ProgressBars extends Component {
                         }</p>
                         <div className={classes.ProgressBar}>
                             <ProgressBar battery={this.props.features.featureTwo.positive}/>
+                            <ProgressBar battery={this.props.features.featureTwo.negative}/>
                         </div>
                     </div>
 
@@ -48,6 +50,7 @@ class ProgressBars extends Component {
                         }</p>
                         <div className={classes.ProgressBar}>
                             <ProgressBar battery={this.props.features.featureThree.positive}/>
+                            <ProgressBar battery={this.props.features.featureThree.negative}/>
                         </div>
                     </div>
 
