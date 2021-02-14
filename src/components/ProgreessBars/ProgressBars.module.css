@@ -79,3 +79,16 @@
 /*    !*opacity: 0;*!*/
 /*    !*transition: 1s ease 0.3s;*!*/
 /*}*/
+
+@media screen and (max-width: 499px) {
+    .ProgressBar {
+        padding-left: 15px;
+        padding-bottom: 40px;
+        margin-left: 8px;
+        /*margin: 0 auto;*/
+    }
+    .Cards {
+        height:34em;
+        width: 23em;
+    }
+}
