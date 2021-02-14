@@ -39,8 +39,8 @@
     transition: 1s ease 0.3s;
 }
 .negativeProgress{
-    background: linear-gradient(to left, #d91f44, #ea5870);
-    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
+    background: linear-gradient(to left, #d91f44, #ff6b09);
+    box-shadow: 0 3px 3px -5px #d91f44, 0 2px 5px #d22d48;
     border-radius: 20px;
     color: #fff;
     display: flex;
