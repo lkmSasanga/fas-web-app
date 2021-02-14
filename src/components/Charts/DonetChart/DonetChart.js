@@ -224,9 +224,10 @@ class DonetChart extends Component{
                         <p className={classes.PieChartItemName}>{capitalizedName}</p>
                         <div className={classes.PieChart}>{chartsStock}</div>
                     </div>
-
                     <ProgressBars features={this.props.itemDetails.features}/>
-
+                </div>
+                <div className={classes.Cards}>
+                    <h1>HEllo</h1>
                 </div>
             </React.Fragment>
         )

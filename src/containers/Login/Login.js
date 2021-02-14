@@ -225,7 +225,7 @@ class Login extends Component {
                                     </div>
                                     {!this.state.loadSignup ?
                                         <div className={Classes.signupLink}>
-                                            Not a member? <a href="#" onClick={this.SignUpClickHandler}>Signup now</a>
+                                            Not a member? <Link to="/signup" onClick={this.SignUpClickHandler}>Signup now</Link>
                                         </div> : null
                                     }
 

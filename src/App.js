@@ -5,7 +5,7 @@ import './App.css';
 // import Layout from './containers/Layout/Layout';
 import InputControl from './containers/InputControl/InputControl';
 import Login from "./containers/Login/Login";
-import SignUp from "./containers/Login/SignUp/Signup";
+// import SignUp from "./containers/Login/SignUp/Signup";
 
 class App extends Component{
     render() {
@@ -17,8 +17,8 @@ class App extends Component{
                     <div className="App">
                         {/*<Layout>*/}
                             <Switch>
-                                <Route path="/" component={Login}/>
-                                <Route path="/signup" component={SignUp}/>
+                                <Route path="/login" component={Login}/>
+                                {/*<Route path="/signup" component={SignUp}/>*/}
                                 <Route path="/search" component={InputControl}/>
                             </Switch>
                         {/*</Layout>*/}
