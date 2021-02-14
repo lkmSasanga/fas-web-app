@@ -1,21 +1,14 @@
 .Cards {
     font-family: 'Poppins', sans-serif;
-
     height:30em;
     width: 40em;
-    /*display:-webkit-box;*/
-    /*display:-ms-flexbox;*/
-    /*display:flex;*/
 
     background-color: white;
     flex-direction: row;
     align-items: center;
-    /*padding: 0 10px;*/
-    /*flex-flow: row;*/
     justify-content: center;
-    /*justify-content: space-between;*/
-    margin: 30px 10px;
 
+    margin: 30px 10px;
 
     -webkit-box-orient:horizontal;
     -webkit-box-direction:normal;
@@ -40,13 +33,7 @@
     position: center;
     padding-left: 25px;
     padding-top: 20px;
-    /*flex-direction: column;*/
-
-
-    /*display: inline-flex;*/
-    /*position: relative;*/
-    /*justify-content: space-between;*/
-    /*padding: 0 10px;*/
+    padding-bottom: 0;
 }
 
 .FeatureLabel {
@@ -55,6 +42,7 @@
     text-align: left;
     /*margin-top: 20px;*/
     padding-left: 50px;
+    padding-top: -20px;
 }
 
 .ProgressBar {
@@ -62,3 +50,32 @@
     padding-bottom: 30px;
 }
 
+/*.PositiveBar {*/
+/*    background: linear-gradient(to left, #1fd985, #6fdc52);*/
+/*    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;*/
+/*    border-radius: 20px;*/
+/*    color: #fff;*/
+/*    display: flex;*/
+
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    height: 100%;*/
+/*    width: 0;*/
+/*    opacity: 0;*/
+/*    transition: 1s ease 0.3s;*/
+/*}*/
+
+.NegativeBar{
+    background: linear-gradient(to left, #ee5d72, #6fdc52);
+    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
+    /*border-radius: 20px;*/
+    /*color: #fff;*/
+    /*display: flex;*/
+
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*height: 100%;*/
+    /*width: 0;*/
+    /*opacity: 0;*/
+    /*transition: 1s ease 0.3s;*/
+}

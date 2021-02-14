@@ -24,12 +24,13 @@
     width: 500px;
 }
 /*38e1b0*/
-.progressDone {
+.positiveProgress {
     background: linear-gradient(to left, #1fd985, #6fdc52);
     box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
     border-radius: 20px;
     color: #fff;
     display: flex;
+
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -37,7 +38,20 @@
     opacity: 0;
     transition: 1s ease 0.3s;
 }
+.negativeProgress{
+    background: linear-gradient(to left, #d91f44, #ea5870);
+    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
+    border-radius: 20px;
+    color: #fff;
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: 1s ease 0.3s;
+}
 @media screen and (max-width: 499px) {
     .progress {
         margin: 15px 0;

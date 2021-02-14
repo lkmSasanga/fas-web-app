@@ -19,22 +19,33 @@ class ProgressBar extends Component{
     componentDidMount() {
         const styleAdd = {
             opacity: 1,
-            width: `${this.props.battery}%`
+            width: `${this.props.percentage}%`
         }
         this.setState({newStyle: styleAdd})
     }
 
     render() {
-
+console.log('from progressBar..' , this.props)
         return (
-            <div className={classes.progress}>
-                <div className={classes.progressDone} style={this.state.newStyle}>
-                    <div style={{fontSize:'15px'}}>
-                        {this.props.battery}%
+            <React.Fragment>
+                <div className={classes.progress}>
+                    <div className={classes.positiveProgress} style={this.state.newStyle}>
+                        <div style={{fontSize:'15px'}}>
+                            {this.props.percentage}
+                            %
+                        </div>
                     </div>
 
                 </div>
-            </div>
+                {/*<div className={classes.progress}>*/}
+                {/*    <div className={classes.negativeProgress} style={this.state.newStyle}>*/}
+                {/*        <div style={{fontSize:'15px'}}>*/}
+                {/*            {this.props.battery}%*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+            </React.Fragment>
+
         )
     }
 

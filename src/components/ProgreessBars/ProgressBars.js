@@ -27,9 +27,13 @@ class ProgressBars extends Component {
                             String(this.props.features.featureOne.name).charAt(0).toUpperCase() +
                             String(this.props.features.featureOne.name).slice(1)
                         }</p>
-                        <div className={classes.ProgressBar}>
-                            <ProgressBar battery={this.props.features.featureOne.positive}/>
-                            <ProgressBar battery={this.props.features.featureOne.negative}/>
+                        <div className={classes.ProgressBar} >
+                            <div className={classes.PositiveBar}>
+                                <ProgressBar percentage={this.props.features.featureOne.positive} />
+                            </div>
+                            <div className={classes.NegativeBar}>
+                                <ProgressBar percentage={this.props.features.featureOne.negative} />
+                            </div>
                         </div>
                     </div>
 
@@ -39,8 +43,8 @@ class ProgressBars extends Component {
                             String(this.props.features.featureTwo.name).slice(1)
                         }</p>
                         <div className={classes.ProgressBar}>
-                            <ProgressBar battery={this.props.features.featureTwo.positive}/>
-                            <ProgressBar battery={this.props.features.featureTwo.negative}/>
+                            <ProgressBar percentage={this.props.features.featureTwo.positive}/>
+                            {/*<ProgressBar battery={this.props.features.featureTwo.negative}/>*/}
                         </div>
                     </div>
 
@@ -50,8 +54,8 @@ class ProgressBars extends Component {
                             String(this.props.features.featureThree.name).slice(1)
                         }</p>
                         <div className={classes.ProgressBar}>
-                            <ProgressBar battery={this.props.features.featureThree.positive}/>
-                            <ProgressBar battery={this.props.features.featureThree.negative}/>
+                            <ProgressBar percentage={this.props.features.featureThree.positive}/>
+                            {/*<ProgressBar battery={this.props.features.featureThree.negative}/>*/}
                         </div>
                     </div>
 
