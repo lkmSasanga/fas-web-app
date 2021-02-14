@@ -59,7 +59,8 @@
     /*flex-flow: row;*/
     justify-content: center;
     /*justify-content: space-between;*/
-    margin: 30px 10px;
+    margin: 10px 10px 50px 10px;
+
 
 
     -webkit-box-orient:horizontal;
@@ -151,12 +152,21 @@
         /*flex-direction: column;*/
         /*display: block;*/
     }
+    .FeedbackCards{
+        height:22em;
+        width: 23em;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
 
     .ChartsRow {
         display: block;
         /*position: relative;*/
         /*justify-content: space-between;*/
         /*padding: 20px 10px;*/
+    }
+    .FeedbackCardsRow{
+        display: block;
     }
     .PieChartTitle {
         font-size: 25px;
