@@ -8,6 +8,7 @@ import ProgressBars from "../../ProgreessBars/ProgressBars";
 // import NegComments from '../../Comments/NegComments/NegComments'
 import FeatureOne from '../../Comments/FeatureOne/FeatureOne'
 import FeatureTwo from '../../Comments/FeatureTwo/FeatureTwo'
+import FeatureThree from '../../Comments/FeatureThree/FeatureThree'
 
 class DonetChart extends Component{
     state = {
@@ -189,7 +190,8 @@ class DonetChart extends Component{
 
                     </div>
                     <div className={classes.FeedbackCards}>
-                        <h1>Another Chart</h1>
+                        <FeatureThree comments={this.props.itemDetails.features}/>
+
                     </div>
                 </div>
 
