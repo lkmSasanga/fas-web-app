@@ -139,7 +139,7 @@ class Login extends Component {
 
 
         if (this.state.loginSuccess) {
-            return <Link to="/search" replace />
+            return <Link to="/search" replace><InputControl/></Link>
         }
 
         // this.props.history.push('/search');
@@ -242,7 +242,11 @@ class Login extends Component {
                         </div>
                         {this.state.isLoading ? <ThreeDots/>: null}
                     </>
-                    :  <Redirect to="/search"/>
+                    :
+                    <>
+                        <Redirect to="/search"/>
+                        <InputControl/>
+                    </>
                 }
                 {/*<Link to="/search" replace><InputControl/></Link>*/}
             </React.Fragment>

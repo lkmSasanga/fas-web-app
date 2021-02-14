@@ -10,14 +10,12 @@ import Login from "./containers/Login/Login";
 class App extends Component{
     render() {
         return (
-            <BrowserRouter
-                // basename="/"
-            >
+            <BrowserRouter>
                 <Route>
                     <div className="App">
                         {/*<Layout>*/}
                             <Switch>
-                                <Route path="/login" component={Login}/>
+                                <Route path="/" component={Login}/>
                                 {/*<Route path="/signup" component={SignUp}/>*/}
                                 <Route path="/search" component={InputControl}/>
                             </Switch>
