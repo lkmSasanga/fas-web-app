@@ -25,14 +25,12 @@ class ProgressBar extends Component{
     }
 
     render() {
-console.log('from progressBar..' , this.props)
         return (
             <React.Fragment>
                 <div className={classes.progress}>
                     <div className={classes.positiveProgress} style={this.state.newStyle}>
                         <div style={{fontSize:'15px'}}>
-                            {this.props.percentage}
-                            %
+                            {this.props.percentage}%
                         </div>
                     </div>
 

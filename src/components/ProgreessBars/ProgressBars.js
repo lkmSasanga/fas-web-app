@@ -44,7 +44,7 @@ class ProgressBars extends Component {
                         }</p>
                         <div className={classes.ProgressBar}>
                             <ProgressBar percentage={this.props.features.featureTwo.positive}/>
-                            {/*<ProgressBar battery={this.props.features.featureTwo.negative}/>*/}
+                            <ProgressBar percentage={this.props.features.featureTwo.negative}/>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ class ProgressBars extends Component {
                         }</p>
                         <div className={classes.ProgressBar}>
                             <ProgressBar percentage={this.props.features.featureThree.positive}/>
-                            {/*<ProgressBar battery={this.props.features.featureThree.negative}/>*/}
+                            <ProgressBar percentage={this.props.features.featureThree.negative}/>
                         </div>
                     </div>
 

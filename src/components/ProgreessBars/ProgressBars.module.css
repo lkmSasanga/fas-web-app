@@ -1,6 +1,6 @@
 .Cards {
     font-family: 'Poppins', sans-serif;
-    height:30em;
+    height:33em;
     width: 40em;
 
     background-color: white;
@@ -65,17 +65,17 @@
 /*    transition: 1s ease 0.3s;*/
 /*}*/
 
-.NegativeBar{
-    background: linear-gradient(to left, #ee5d72, #6fdc52);
-    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;
-    /*border-radius: 20px;*/
-    /*color: #fff;*/
-    /*display: flex;*/
+/*.NegativeBar{*/
+/*    background: linear-gradient(to left, #ee5d72, #6fdc52);*/
+/*    box-shadow: 0 3px 3px -5px #1dc67a, 0 2px 5px #71e34e;*/
+/*    !*border-radius: 20px;*!*/
+/*    !*color: #fff;*!*/
+/*    !*display: flex;*!*/
 
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*height: 100%;*/
-    /*width: 0;*/
-    /*opacity: 0;*/
-    /*transition: 1s ease 0.3s;*/
-}
+/*    !*align-items: center;*!*/
+/*    !*justify-content: center;*!*/
+/*    !*height: 100%;*!*/
+/*    !*width: 0;*!*/
+/*    !*opacity: 0;*!*/
+/*    !*transition: 1s ease 0.3s;*!*/
+/*}*/
