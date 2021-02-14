@@ -43,7 +43,45 @@
     box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
 }
 
+.FeedbackCards {
+    font-family: 'Poppins', sans-serif;
+
+    height:21em;
+    width: 26.3em;
+    /*display:-webkit-box;*/
+    /*display:-ms-flexbox;*/
+    /*display:flex;*/
+
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+    /*padding: 0 10px;*/
+    /*flex-flow: row;*/
+    justify-content: center;
+    /*justify-content: space-between;*/
+    margin: 30px 10px;
+
+
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+    /*position:relative;*/
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius:16px;
+    overflow:hidden;
+    -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+    box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
 .ChartsRow {
+    display: inline-flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.FeedbackCardsRow {
     display: inline-flex;
     position: relative;
     justify-content: space-between;
