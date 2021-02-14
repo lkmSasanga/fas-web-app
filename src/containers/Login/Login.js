@@ -44,11 +44,10 @@ class Login extends Component {
 
     onClickHandler = (e) => {
         e.preventDefault()
-        console.log('clicked')
         this.setState({ clicked: true, isLoading: true, errorOccurs: false })
 
         if (!this.state.loadSignup){
-            console.log('loadSignup...', this.state.loadSignup)
+            // console.log('loadSignup...', this.state.loadSignup)
 
             fetch('https://malindu-fas.herokuapp.com/api/login', {
                 method: 'POST',
@@ -62,7 +61,7 @@ class Login extends Component {
                 }),
             }).then(res => res.json())
                 .then(json => {
-                    console.log('json', json);
+                    // console.log('json', json);
                     if (json.success) {
                         this.setState({
                             email: '',
@@ -91,7 +90,7 @@ class Login extends Component {
                 });
 
         } else if (this.state.loadSignup) {
-            console.log('loadSignup...', this.state.loadSignup)
+
             fetch('https://malindu-fas.herokuapp.com/api/register', {
                 method: 'POST',
                 headers: {
@@ -105,7 +104,7 @@ class Login extends Component {
                 }),
             }).then(res => res.json())
                 .then(json => {
-                    console.log('json', json);
+                    // console.log('json', json);
                     if (json.success) {
                         this.setState({
                             // signUpError: json.message,
@@ -147,7 +146,7 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.state.errMsg)
+
         return (
             <React.Fragment>
                 { !this.state.loginSuccess ?
@@ -237,7 +236,6 @@ class Login extends Component {
                                 {this.state.signUpError ?
                                     console.log('login error'): null
                                 }
-                                {/*{this.onSubmitHandler}*/}
                             </div>
                         </div>
                         {this.state.isLoading ? <ThreeDots/>: null}

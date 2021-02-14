@@ -90,9 +90,9 @@ class InputControl extends Component {
         // if (this.state.requestDataMounted) {
         //     console.log('...request data mounted...')
         // }
-        console.log('itemname.......', this.state.itemName)
+        // console.log('itemname.......', this.state.itemName)
         const element = <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
-        console.log('from input control')
+        // console.log('from input control')
         return (
             <React.Fragment>
                 <Layout>
