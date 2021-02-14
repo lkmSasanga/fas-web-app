@@ -1,0 +1,64 @@
+.Cards {
+    font-family: 'Poppins', sans-serif;
+
+    height:30em;
+    width: 40em;
+    /*display:-webkit-box;*/
+    /*display:-ms-flexbox;*/
+    /*display:flex;*/
+
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+    /*padding: 0 10px;*/
+    /*flex-flow: row;*/
+    justify-content: center;
+    /*justify-content: space-between;*/
+    margin: 30px 10px;
+
+
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+    /*position:relative;*/
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius:16px;
+    overflow:hidden;
+    -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+    box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+
+.ChartTitle {
+    font-size: 30px;
+    color: #4c4c4c;
+    font-weight: bold;
+    /*display: block;*/
+    text-align: left;
+    position: center;
+    padding-left: 25px;
+    padding-top: 20px;
+    /*flex-direction: column;*/
+
+
+    /*display: inline-flex;*/
+    /*position: relative;*/
+    /*justify-content: space-between;*/
+    /*padding: 0 10px;*/
+}
+
+.FeatureLabel {
+    font-weight: bold;
+    color: #2b2b2b;
+    text-align: left;
+    /*margin-top: 20px;*/
+    padding-left: 50px;
+}
+
+.ProgressBar {
+    padding-left: 50px;
+    padding-bottom: 30px;
+}
+

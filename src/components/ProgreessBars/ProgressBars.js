@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import classes from "../Charts/DonetChart/DonetChart.module.css";
+// import donutClasses from "../Charts/DonetChart/DonetChart.module.css";
+import classes from './ProgressBars.module.css'
 import ProgressBar from "./ProgressBar/ProgressBar";
 
 class ProgressBars extends Component {
@@ -19,7 +20,7 @@ class ProgressBars extends Component {
             <div>
                 {this.props.features ?
                     <div className={classes.Cards}>
-                    <p className={classes.PieChartTitle}>Feature Report</p>
+                    <p className={classes.ChartTitle}>Feature Report</p>
                     <br/>
                     <div>
                         <p className={classes.FeatureLabel}>{
