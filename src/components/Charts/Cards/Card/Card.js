@@ -17,12 +17,12 @@ const Card = (props) => {
 
           <div className={classes.Card} >
               <p className={classes.Title} >Positive</p>
-              <p className={classes.Value} style={{color: "#1fd985"}}>{props.data.positive}%</p>
+              <p className={classes.Value} style={{color: "#1ac679"}}>{props.data.positive}%</p>
           </div>
 
           <div className={classes.Card}>
               <p className={classes.Title} >Negative</p>
-              <p className={classes.Value} style={{color: "#f65a6f"}}>{props.data.negative}%</p>
+              <p className={classes.Value} style={{color: "#d22d48"}}>{props.data.negative}%</p>
           </div>
 
           <div className={classes.Card}>

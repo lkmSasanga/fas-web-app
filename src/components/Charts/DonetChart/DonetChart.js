@@ -84,13 +84,16 @@ class DonetChart extends Component{
             pie: {
                 showInLegend: true,
                     innerSize: "60%",
+                    align: "right",
+                    verticalAlign: "center",
+                    itemMarginTop: 10,
                     dataLabels: {
                     enabled: false,
                         distance: -14,
                         color: "white",
                         style: {
                         fontWeight: "bold",
-                            fontsize: 50
+                        fontsize: 50
                     }
                 },
                 size: `${this.state.chartSize}%`
@@ -102,12 +105,13 @@ class DonetChart extends Component{
             data: [{
                 name: 'Positive',
                 y: pos,
-                color: '#1fd985',
+                color: '#41b84b',
+
             },
                 {
                     name: 'Negative',
                     y: neg,
-                    color: '#ee5d72'
+                    color: '#d22d48'
                 }
             ]
         }],
