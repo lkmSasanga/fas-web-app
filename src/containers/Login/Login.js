@@ -20,7 +20,9 @@ class Login extends Component {
         submitButtonName: 'Login',
         errMsg: '',
         invalidEmail: false,
-        invalidPassword: false
+        invalidPassword: false,
+        emailPlaceHolder: 'Email Address',
+        passwordPlaceHolder: 'Password',
     }
 
     onChangeUsername = (e) => {
@@ -44,6 +46,11 @@ class Login extends Component {
 
     onClickHandler = (e) => {
         e.preventDefault()
+        if(this.state.email === '' ) {
+            this.setState({ emailPlaceHolder: 'Please enter your email' })
+        } else if(this.state.password === ''){
+            this.setState({ emailPlaceHolder: 'Please enter your password' })
+        }
         this.setState({ clicked: true, isLoading: true, errorOccurs: false })
 
         if (!this.state.loadSignup){
@@ -169,7 +176,7 @@ class Login extends Component {
                                                         : null} onChange={e => this.onChangeEmail(e)}/>
                                                 {this.state.invalidEmail ?
                                                     <label style={{color: "red"}}>Invalid Email Address</label>
-                                                    :<label>Email Address</label> }
+                                                    :<label>{this.state.emailPlaceHolder}</label> }
                                             </div>
                                             <div className={Classes.field}>
                                                 <input
@@ -181,7 +188,7 @@ class Login extends Component {
                                                     onChange={e => this.onChangePassword(e)}/>
                                                 {this.state.invalidPassword ?
                                                     <label style={{color: "red"}}>Invalid Password</label> :
-                                                    <label>Password</label>
+                                                    <label>{this.state.passwordPlaceHolder}</label>
                                                 }
                                             </div>
                                         </React.Fragment>
