@@ -16,11 +16,13 @@ class InputControl extends Component {
         matchFound: false,
         buttonClicked: false,
         inputClicked: false,
-        requestDataMounted: false
+        requestDataMounted: false,
+        itemNamePlaceholder: 'Enter item Name'
     }
 
     onChangeItemName = (e) =>{
         // e.preventDefault()
+        if(!e.target.value) console.log('Enter a item name')
         this.setState({
             itemName: e.target.value
         })
@@ -35,12 +37,13 @@ class InputControl extends Component {
         e.preventDefault()
 
         console.log('button click')
-        // if (!this.state.buttonClicked) {
-            this.setState({
-                buttonClicked: !this.state.buttonClicked,
-                // buttonClicked: true,
-            })
-        // }
+        if (!this.state.itemName) {
+            return this.setState({itemNamePlaceholder: 'Please enter a item name'})
+        }
+        this.setState({
+            buttonClicked: !this.state.buttonClicked,
+            // buttonClicked: true,
+        })
 
         // this.runSentimentDataComponent()
 
@@ -107,8 +110,8 @@ class InputControl extends Component {
                             <input  type="text"
                                     name="inputString"
                                     autoFocus
-                                    required
-                                    placeholder="Enter item Name"
+                                    required="required"
+                                    placeholder={this.state.itemNamePlaceholder}
                                     autoComplete="off"
                                 // name='itemName'
                                     className={classes.TextInput}
