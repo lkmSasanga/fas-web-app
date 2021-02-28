@@ -46,102 +46,106 @@ class Login extends Component {
 
     onClickHandler = (e) => {
         e.preventDefault()
-        if(this.state.email === '' ) {
-            this.setState({ emailPlaceHolder: 'Please enter your email' })
+        if(this.state.email === '' && this.state.password === '') {
+            return this.setState({ emailPlaceHolder: 'Please enter your email', passwordPlaceHolder: 'Please enter your password' })
         } else if(this.state.password === ''){
-            this.setState({ emailPlaceHolder: 'Please enter your password' })
-        }
-        this.setState({ clicked: true, isLoading: true, errorOccurs: false })
+            this.setState({ passwordPlaceHolder: 'Please enter your password' })
+        } else if(this.state.email === ''){
+            this.setState({ emailPlaceHolder: 'Please enter your email' })
+        } else if(this.state.email && this.state.password) {
+            this.setState({ clicked: true, isLoading: true, errorOccurs: false })
 
-        if (!this.state.loadSignup){
-            // console.log('loadSignup...', this.state.loadSignup)
+            if (!this.state.loadSignup){
+                // console.log('loadSignup...', this.state.loadSignup)
 
-            fetch('https://malindu-fas.herokuapp.com/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+                fetch('https://malindu-fas.herokuapp.com/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
 
-                },
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password,
-                }),
-            }).then(res => res.json())
-                .then(json => {
-                    // console.log('json', json);
-                    if (json.success) {
-                        this.setState({
-                            email: '',
-                            password: '',
-                            isLoading: false,
-                            signUpError: '',
-                            errorOccurs: false,
-                            loginSuccess: true
-                        });
-                    }
-                    else {
-                        if(json.message === 'Invalid Email!') {
-                            this.setState({invalidEmail: true})
-                        } else if(json.message === 'Invalid Password!') {
-                            this.setState({invalidPassword: true})
+                    },
+                    body: JSON.stringify({
+                        email: this.state.email,
+                        password: this.state.password,
+                    }),
+                }).then(res => res.json())
+                    .then(json => {
+                        // console.log('json', json);
+                        if (json.success) {
+                            this.setState({
+                                email: '',
+                                password: '',
+                                isLoading: false,
+                                signUpError: '',
+                                errorOccurs: false,
+                                loginSuccess: true
+                            });
                         }
+                        else {
+                            if(json.message === 'Invalid Email!') {
+                                this.setState({invalidEmail: true})
+                            } else if(json.message === 'Invalid Password!') {
+                                this.setState({invalidPassword: true})
+                            }
 
-                        this.setState({
-                            signUpError: json.message,
-                            // email: '',
-                            // password: '',
-                            isLoading: false,
-                            errorOccurs: true
-                        });
-                    }
-                });
-
-        } else if (this.state.loadSignup) {
-
-            fetch('https://malindu-fas.herokuapp.com/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-
-                },
-                body: JSON.stringify({
-                    username: this.state.username,
-                    email: this.state.email,
-                    password: this.state.password,
-                }),
-            }).then(res => res.json())
-                .then(json => {
-                    // console.log('json', json);
-                    if (json.success) {
-                        this.setState({
-                            // signUpError: json.message,
-                            // isLoading: false,
-                            username: '',
-                            email: '',
-                            password: '',
-                            isLoading: false,
-                            signUpError: '',
-                            errorOccurs: false,
-                            loginSuccess: true,
-                        });
-                    }
-                    else {
-                        if(json.data === 'User validation failed: email: Please fill a valid email address') {
-                            this.setState({invalidEmail: true})
+                            this.setState({
+                                signUpError: json.message,
+                                // email: '',
+                                // password: '',
+                                isLoading: false,
+                                errorOccurs: true
+                            });
                         }
-                        this.setState({
-                            signUpError: json.message,
-                            // username: '',
-                            // email: '',
-                            // password: '',
-                            isLoading: false,
-                            errorOccurs: true,
-                            errMsg: json.data
+                    });
 
-                        });
-                    }
-                });
+            } else if (this.state.loadSignup) {
+
+                fetch('https://malindu-fas.herokuapp.com/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+
+                    },
+                    body: JSON.stringify({
+                        username: this.state.username,
+                        email: this.state.email,
+                        password: this.state.password,
+                    }),
+                }).then(res => res.json())
+                    .then(json => {
+                        // console.log('json', json);
+                        if (json.success) {
+                            this.setState({
+                                // signUpError: json.message,
+                                // isLoading: false,
+                                username: '',
+                                email: '',
+                                password: '',
+                                isLoading: false,
+                                signUpError: '',
+                                errorOccurs: false,
+                                loginSuccess: true,
+                            });
+                        }
+                        else {
+                            if(json.data === 'User validation failed: email: Please fill a valid email address') {
+                                this.setState({invalidEmail: true})
+                            }
+                            this.setState({
+                                signUpError: json.message,
+                                // username: '',
+                                // email: '',
+                                // password: '',
+                                isLoading: false,
+                                errorOccurs: true,
+                                errMsg: json.data
+
+                            });
+                        }
+                    });
+            }
         }
+
 
 
         if (this.state.loginSuccess) {
