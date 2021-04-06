@@ -162,8 +162,6 @@ class Login extends Component {
             }
         }
 
-
-
         if (this.state.loginSuccess) {
             return <Link to="/search" replace><InputControl/></Link>
         }
