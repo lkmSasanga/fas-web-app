@@ -185,19 +185,19 @@ class DonetChart extends Component{
                     <ProgressBars features={this.props.itemDetails.features}/>
                 </div>
 
-                <div className={classes.FeedbackCardsRow}>
-                    <div className={classes.FeedbackCards}>
-                        <FeatureOne comments={this.props.itemDetails.features}/>
-                    </div>
-                    <div className={classes.FeedbackCards}>
-                        <FeatureTwo comments={this.props.itemDetails.features}/>
+                {/*<div className={classes.FeedbackCardsRow}>*/}
+                {/*    <div className={classes.FeedbackCards}>*/}
+                {/*        <FeatureOne comments={this.props.itemDetails.features}/>*/}
+                {/*    </div>*/}
+                {/*    <div className={classes.FeedbackCards}>*/}
+                {/*        <FeatureTwo comments={this.props.itemDetails.features}/>*/}
 
-                    </div>
-                    <div className={classes.FeedbackCards}>
-                        <FeatureThree comments={this.props.itemDetails.features}/>
+                {/*    </div>*/}
+                {/*    <div className={classes.FeedbackCards}>*/}
+                {/*        <FeatureThree comments={this.props.itemDetails.features}/>*/}
 
-                    </div>
-                </div>
+                {/*    </div>*/}
+                {/*</div>*/}
 
             </React.Fragment>
         )
