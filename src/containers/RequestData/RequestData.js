@@ -50,6 +50,8 @@ class RequestData extends Component {
             })
     }
 
+    // ------------------------------------------CHECK THE DATA OBJECT TYPE IN MONGO DB------------------------------------------------------------
+
     extractFeatures = () => {
         // if (this.state.loading) {
             for (let feature in this.props.itemDetails.features) {

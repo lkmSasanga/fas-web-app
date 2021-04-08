@@ -37,6 +37,7 @@ class InputControl extends Component {
         e.preventDefault()
 
         console.log('button click')
+        console.log('item name:', this.state.itemName)
         if (!this.state.itemName) {
             return this.setState({itemNamePlaceholder: 'Please enter a item name'})
         }
