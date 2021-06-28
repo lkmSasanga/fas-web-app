@@ -34,6 +34,8 @@ class Login extends Component {
     onChangeEmail = (e) => {
         e.preventDefault()
         this.setState({email: e.target.value})
+        // console.log(this.state.email)
+
     }
     onChangePassword = (e) => {
         e.preventDefault()
@@ -73,32 +75,37 @@ class Login extends Component {
 
     onClickHandler = (e) => {
         e.preventDefault()
-        if(this.state.email === '' && this.state.password === '') {
-            return this.setState({
-                emailPlaceHolder: 'Please enter your email',
-                passwordPlaceHolder: 'Please enter your password'
-            })
-        } else if(this.state.password === ''){
-            this.setState({
-                passwordPlaceHolder: 'Please enter your password'
-            })
-        } else if(this.state.email === ''){
-            this.setState({
-                emailPlaceHolder: 'Please enter your email'
-            })
-        } else if(this.state.username === ''){
-            this.setState({
-                usernamePlaceHolder: 'Please enter a username'
-            })
-        } else if(this.state.email && this.state.password) {
-            this.setState({
-                clicked: true,
-                isLoading: true,
-                errorOccurs: false
-            })
+        console.log('clicked on login', this.state.email, this.state.password);
+        console.log('loadingSignup state', this.state.loadSignup);
+
+
+        // if(this.state.email === '' && this.state.password === '') {
+        //     return this.setState({
+        //         emailPlaceHolder: 'Please enter your email',
+        //         passwordPlaceHolder: 'Please enter your password'
+        //     })
+        // } else if(this.state.password === ''){
+        //     this.setState({
+        //         passwordPlaceHolder: 'Please enter your password'
+        //     })
+        // } else if(this.state.email === ''){
+        //     this.setState({
+        //         emailPlaceHolder: 'Please enter your email'
+        //     })
+        // } else if(this.state.username === ''){
+        //     this.setState({
+        //         usernamePlaceHolder: 'Please enter a username'
+        //     })
+        // } else if(this.state.email && this.state.password) {
+        //     this.setState({
+        //         clicked: true,
+        //         isLoading: true,
+        //         errorOccurs: false
+        //     })
 
             if (!this.state.loadSignup){
                 // console.log('loadSignup...', this.state.loadSignup)
+                console.log('loading signup');
 
                 fetch('https://malindu-fas.herokuapp.com/api/login', {
                     method: 'POST',
@@ -186,7 +193,7 @@ class Login extends Component {
                         }
                     });
             }
-        }
+        // }
 
         if (this.state.loginSuccess) {
             return <Link to="/search" replace><InputControl/></Link>
