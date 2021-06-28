@@ -1,4 +1,4 @@
-<h1 align="left">
+<h1 align="center">
     Dashboard of the Feedback Analysis System
 </h1>
 
