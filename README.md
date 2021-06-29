@@ -24,6 +24,7 @@ This web application is used to create the user interaction of the system. Users
 </p>
 
 <br>
+
 <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px">&nbsp;**Tech Stack of the Project**
 
 - Web Scraping 
