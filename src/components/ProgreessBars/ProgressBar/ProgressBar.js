@@ -13,42 +13,28 @@ class ProgressBar extends Component{
     //     setStyle(newStyle);
     // }, );
     state = {
-        newPosStyle: {},
-        newNegStyle: {}
+        newStyle: {}
     }
 
     componentDidMount() {
-        const posStyleAdd = {
+        const styleAdd = {
             opacity: 1,
-            width: `${this.props.percentage.positive}%`
+            width: `${this.props.battery}%`
         }
-        const negStyleAdd = {
-            opacity: 1,
-            width: `${this.props.percentage.negative}%`
-        }
-        this.setState({newPosStyle: posStyleAdd, newNegStyle: negStyleAdd})
+        this.setState({newStyle: styleAdd})
     }
 
     render() {
+
         return (
-            <React.Fragment>
-                <div className={classes.progress}>
-                    <div className={classes.positiveProgress} style={this.state.newPosStyle}>
-                        <div style={{fontSize:'15px'}}>
-                            {this.props.percentage.positive}%
-                        </div>
+            <div className={classes.progress}>
+                <div className={classes.progressDone} style={this.state.newStyle}>
+                    <div style={{fontSize:'15px'}}>
+                        {this.props.battery}%
                     </div>
 
                 </div>
-                <div className={classes.progress}>
-                    <div className={classes.negativeProgress} style={this.state.newNegStyle}>
-                        <div style={{fontSize:'15px'}}>
-                            {this.props.percentage.negative}%
-                        </div>
-                    </div>
-                </div>
-            </React.Fragment>
-
+            </div>
         )
     }
 

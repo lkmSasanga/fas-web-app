@@ -2,13 +2,10 @@ import React, {Component} from 'react';
 
 import classes from './DonetChart.module.css';
 
+// import ProgressBar from '../../ProgreessBars/ProgressBar/ProgressBar'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import ProgressBars from "../../ProgreessBars/ProgressBars";
-// import NegComments from '../../Comments/NegComments/NegComments'
-import FeatureOne from '../../Comments/FeatureOne/FeatureOne'
-import FeatureTwo from '../../Comments/FeatureTwo/FeatureTwo'
-import FeatureThree from '../../Comments/FeatureThree/FeatureThree'
 
 class DonetChart extends Component{
     state = {
@@ -33,6 +30,12 @@ class DonetChart extends Component{
     }
 
     componentDidMount() {
+        // this.runChart();
+        // let chartView = (<HighchartsReact
+        //     highcharts = { Highcharts }
+        //     options = { this.chartComponent }
+        // />)
+        // this.extractFeatureData();
         this.setState({dataRecieved: true})
         this.setState({features: this.props.itemDetails.features})
 
@@ -52,12 +55,55 @@ class DonetChart extends Component{
 
         console.log(this.state.features)
 
+
+
+        // this.setState({
+        //     featureOne: {
+        //         name: this.state.featuresArray[0].name,
+        //         pos: this.state.featuresArray[0].pos
+        //     },
+
+        // })
+        // console.log(this.state.featuresArray[0].name)
+        // console.log(this.state.featuresArray[0].pos)
     }
+
+    // componentWillUnmount() {
+    //     this.setState({dataRecieved: false})
+    // }
+
 
     render (props) {
 
-        let pos = parseInt(this.props.itemDetails.positive)
-        let neg = parseInt(this.props.itemDetails.negative)
+        // if (this.state.featuresArray) {
+        //     console.log('features array ', this.state.featuresArray[0].name)
+        //     console.log('features array ', this.state.featuresArray[0].pos)
+        //     console.log('features array ', this.state.featuresArray[0].neg)
+        // }
+
+        // let passiveIfSupported = false;
+        //
+        // try {
+        //     window.addEventListener("test", null,
+        //         Object.defineProperty(
+        //             {},
+        //             "passive",
+        //             {
+        //                 get: function() { passiveIfSupported = { passive: true }; }
+        //             }
+        //         )
+        //     );
+        // } catch(err) {}
+        //
+        // window.addEventListener('scroll', function(event) {
+        //     /* do something */
+        //     // can't use event.preventDefault();
+        //     // event.preventDefault()
+        // }, passiveIfSupported );
+
+
+        var pos = parseInt(this.props.itemDetails.positive)
+        var neg = parseInt(this.props.itemDetails.negative)
 
         const chartComponent = {
         chart: {
@@ -84,16 +130,13 @@ class DonetChart extends Component{
             pie: {
                 showInLegend: true,
                     innerSize: "60%",
-                    align: "right",
-                    verticalAlign: "center",
-                    itemMarginTop: 10,
                     dataLabels: {
                     enabled: false,
                         distance: -14,
                         color: "white",
                         style: {
                         fontWeight: "bold",
-                        fontsize: 50
+                            fontsize: 50
                     }
                 },
                 size: `${this.state.chartSize}%`
@@ -105,13 +148,12 @@ class DonetChart extends Component{
             data: [{
                 name: 'Positive',
                 y: pos,
-                color: '#41b84b',
-
+                color: '#1fd985',
             },
                 {
                     name: 'Negative',
                     y: neg,
-                    color: '#d22d48'
+                    color: '#ee5d72'
                 }
             ]
         }],
@@ -182,23 +224,10 @@ class DonetChart extends Component{
                         <p className={classes.PieChartItemName}>{capitalizedName}</p>
                         <div className={classes.PieChart}>{chartsStock}</div>
                     </div>
+
                     <ProgressBars features={this.props.itemDetails.features}/>
+
                 </div>
-
-                {/*<div className={classes.FeedbackCardsRow}>*/}
-                {/*    <div className={classes.FeedbackCards}>*/}
-                {/*        <FeatureOne comments={this.props.itemDetails.features}/>*/}
-                {/*    </div>*/}
-                {/*    <div className={classes.FeedbackCards}>*/}
-                {/*        <FeatureTwo comments={this.props.itemDetails.features}/>*/}
-
-                {/*    </div>*/}
-                {/*    <div className={classes.FeedbackCards}>*/}
-                {/*        <FeatureThree comments={this.props.itemDetails.features}/>*/}
-
-                {/*    </div>*/}
-                {/*</div>*/}
-
             </React.Fragment>
         )
     };

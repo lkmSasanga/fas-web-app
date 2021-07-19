@@ -25,7 +25,7 @@ class RequestData extends Component {
         // const selectedItemName = this.props.name
         this.setState({selectedItem: this.props.name})
 
-        axios.get('https://malindu-fas.herokuapp.com/sentiment')
+        axios.get('https://malindu-fas.herokuapp.com/')
             .then(response => {
                 // filtering
                 const outputArrayObject = response.data
@@ -49,8 +49,6 @@ class RequestData extends Component {
                 console.log(error);
             })
     }
-
-    // ------------------------------------------CHECK THE DATA OBJECT TYPE IN MONGO DB------------------------------------------------------------
 
     extractFeatures = () => {
         // if (this.state.loading) {

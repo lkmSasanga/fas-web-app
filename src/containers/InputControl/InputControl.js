@@ -16,13 +16,11 @@ class InputControl extends Component {
         matchFound: false,
         buttonClicked: false,
         inputClicked: false,
-        requestDataMounted: false,
-        itemNamePlaceholder: 'Enter item Name'
+        requestDataMounted: false
     }
 
     onChangeItemName = (e) =>{
         // e.preventDefault()
-        if(!e.target.value) console.log('Enter a item name')
         this.setState({
             itemName: e.target.value
         })
@@ -37,14 +35,12 @@ class InputControl extends Component {
         e.preventDefault()
 
         console.log('button click')
-        console.log('item name:', this.state.itemName)
-        if (!this.state.itemName) {
-            return this.setState({itemNamePlaceholder: 'Please enter a item name'})
-        }
-        this.setState({
-            buttonClicked: !this.state.buttonClicked,
-            // buttonClicked: true,
-        })
+        // if (!this.state.buttonClicked) {
+            this.setState({
+                buttonClicked: !this.state.buttonClicked,
+                // buttonClicked: true,
+            })
+        // }
 
         // this.runSentimentDataComponent()
 
@@ -94,9 +90,9 @@ class InputControl extends Component {
         // if (this.state.requestDataMounted) {
         //     console.log('...request data mounted...')
         // }
-        // console.log('itemname.......', this.state.itemName)
+        console.log('itemname.......', this.state.itemName)
         const element = <FontAwesomeIcon className={classes.SearchIcon} icon={faSearch} />
-        // console.log('from input control')
+        console.log('from input control')
         return (
             <React.Fragment>
                 <Layout>
@@ -111,8 +107,8 @@ class InputControl extends Component {
                             <input  type="text"
                                     name="inputString"
                                     autoFocus
-                                    required="required"
-                                    placeholder={this.state.itemNamePlaceholder}
+                                    required
+                                    placeholder="Enter item Name"
                                     autoComplete="off"
                                 // name='itemName'
                                     className={classes.TextInput}

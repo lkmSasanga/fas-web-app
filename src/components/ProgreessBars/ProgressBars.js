@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-// import donutClasses from "../Charts/DonetChart/DonetChart.module.css";
-import classes from './ProgressBars.module.css'
+import classes from "../Charts/DonetChart/DonetChart.module.css";
 import ProgressBar from "./ProgressBar/ProgressBar";
 
 class ProgressBars extends Component {
@@ -20,18 +19,15 @@ class ProgressBars extends Component {
             <div>
                 {this.props.features ?
                     <div className={classes.Cards}>
-                    <p className={classes.ChartTitle}>Feature Report</p>
+                    <p className={classes.PieChartTitle}>Feature Report</p>
                     <br/>
                     <div>
                         <p className={classes.FeatureLabel}>{
                             String(this.props.features.featureOne.name).charAt(0).toUpperCase() +
                             String(this.props.features.featureOne.name).slice(1)
                         }</p>
-                        <div >
-                            <div className={classes.ProgressBar}>
-                                <ProgressBar percentage={this.props.features.featureOne} />
-                            </div>
-
+                        <div className={classes.ProgressBar}>
+                            <ProgressBar battery={this.props.features.featureOne.positive}/>
                         </div>
                     </div>
 
@@ -41,7 +37,7 @@ class ProgressBars extends Component {
                             String(this.props.features.featureTwo.name).slice(1)
                         }</p>
                         <div className={classes.ProgressBar}>
-                            <ProgressBar percentage={this.props.features.featureTwo}/>
+                            <ProgressBar battery={this.props.features.featureTwo.positive}/>
                         </div>
                     </div>
 
@@ -51,7 +47,7 @@ class ProgressBars extends Component {
                             String(this.props.features.featureThree.name).slice(1)
                         }</p>
                         <div className={classes.ProgressBar}>
-                            <ProgressBar percentage={this.props.features.featureThree}/>
+                            <ProgressBar battery={this.props.features.featureThree.positive}/>
                         </div>
                     </div>
 
