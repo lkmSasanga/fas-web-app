@@ -77,8 +77,8 @@ class Login extends Component {
 
   onClickHandler = (e) => {
     e.preventDefault();
-    console.log("clicked on login", this.state.email, this.state.password);
-    console.log("loadingSignup state", this.state.loadSignup);
+    // console.log("clicked on login", this.state.email, this.state.password);
+    // console.log("loadingSignup state", this.state.loadSignup);
 
     if (this.state.email === "" && this.state.password === "") {
       return this.setState({
@@ -112,7 +112,7 @@ class Login extends Component {
 
     if (!this.state.loadSignup) {
       // console.log('loadSignup...', this.state.loadSignup)
-      console.log("loading signup");
+    //   console.log("loading signup");
 
       fetch("https://malindu-fas.herokuapp.com/api/login", {
         method: "POST",
