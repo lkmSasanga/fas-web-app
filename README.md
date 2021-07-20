@@ -4,7 +4,7 @@
 
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Version-1.0-blue" />&nbsp;
+    <img src="https://img.shields.io/badge/Version-2.0-blue" />&nbsp;
     <img src="https://img.shields.io/badge/Completion-95-success" />&nbsp;
     <img src="https://img.shields.io/badge/Role-Total Contribution-success" />&nbsp;
     <img src="https://img.shields.io/badge/License-MIT-orange" />&nbsp;
