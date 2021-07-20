@@ -17,9 +17,7 @@ class RequestData extends Component {
   };
 
   componentDidMount() {
-    console.log("....request data mounted...");
     this.setState({ loading: true });
-    console.log("...from request data.....", this.props.name);
     // url which is node output the data
     // const selectedItemName = this.props.name
     this.setState({ selectedItem: this.props.name });
@@ -34,7 +32,6 @@ class RequestData extends Component {
           (nameOfItem) =>
             nameOfItem.item === this.state.selectedItem.toLowerCase()
         );
-        console.log(filteredArray);
         if (filteredArray) {
           this.setState({ loading: false, showChart: true });
           // const runChart = () => {return }
