@@ -314,8 +314,8 @@ class Login extends Component {
                     </React.Fragment>
                   ) : null}
 
-                  <div className={Classes.content}>
-                    <div className={Classes.checkbox}>
+                  {/* <div className={Classes.content}> */}
+                    {/* <div className={Classes.checkbox}>
                       <input type="checkbox" id="remember-me" />
                       <label
                         htmlFor="remember-me"
@@ -323,11 +323,12 @@ class Login extends Component {
                       >
                         Remember me
                       </label>
-                    </div>
-                    <div className={Classes.passLink}>
+                    </div> */}
+                    {/* <div className={Classes.passLink}>
                       <a href="/">Forgot password?</a>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
+                  <br/>
 
                   <div className={Classes.field}>
                     <input
