@@ -201,8 +201,11 @@ class Login extends Component {
         });
     }
     // }
+    if(localStorage.getItem('token') !== null) {
+      console.log('token found')
+    }
 
-    if (this.state.loginSuccess || localStorage.getItem('token')) {
+    if (this.state.loginSuccess || (localStorage.getItem('token') !== null)) {
       return (
         <Link to="/search" replace>
           <InputControl />
@@ -213,11 +216,12 @@ class Login extends Component {
     // this.props.history.push('/search');
     // return <Signup/>
   };
+  // {/* !this.state.loginSuccess  */}
 
   render() {
     return (
       <React.Fragment>
-        {!this.state.loginSuccess ? (
+        {(localStorage.getItem('token') == null) ? (
           <>
             <div className={Classes.FormBody}>
               <div className={Classes.wrapper}>
