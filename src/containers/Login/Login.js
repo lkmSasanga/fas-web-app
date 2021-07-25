@@ -112,7 +112,7 @@ class Login extends Component {
 
     if (!this.state.loadSignup) {
       // console.log('loadSignup...', this.state.loadSignup)
-    //   console.log("loading signup");
+      //   console.log("loading signup");
 
       fetch("https://malindu-fas.herokuapp.com/api/login", {
         method: "POST",
@@ -127,6 +127,7 @@ class Login extends Component {
         .then((res) => res.json())
         .then((json) => {
           // console.log('json', json);
+          localStorage.setItem("token", json.data.token);
           if (json.success) {
             this.setState({
               email: "",
@@ -167,6 +168,7 @@ class Login extends Component {
         .then((res) => res.json())
         .then((json) => {
           // console.log('json', json);
+          localStorage.setItem("token", json.data.token);
           if (json.success) {
             this.setState({
               // signUpError: json.message,
@@ -200,7 +202,7 @@ class Login extends Component {
     }
     // }
 
-    if (this.state.loginSuccess) {
+    if (this.state.loginSuccess || localStorage.getItem('token')) {
       return (
         <Link to="/search" replace>
           <InputControl />
@@ -315,7 +317,7 @@ class Login extends Component {
                   ) : null}
 
                   {/* <div className={Classes.content}> */}
-                    {/* <div className={Classes.checkbox}>
+                  {/* <div className={Classes.checkbox}>
                       <input type="checkbox" id="remember-me" />
                       <label
                         htmlFor="remember-me"
@@ -324,11 +326,11 @@ class Login extends Component {
                         Remember me
                       </label>
                     </div> */}
-                    {/* <div className={Classes.passLink}>
+                  {/* <div className={Classes.passLink}>
                       <a href="/">Forgot password?</a>
                     </div> */}
                   {/* </div> */}
-                  <br/>
+                  <br />
 
                   <div className={Classes.field}>
                     <input
